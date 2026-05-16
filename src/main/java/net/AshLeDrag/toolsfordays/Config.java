@@ -1,4 +1,4 @@
-package net.AshLeDrag.ToolsForDays;
+package net.AshLeDrag.toolsfordays;
 
 import java.util.List;
 

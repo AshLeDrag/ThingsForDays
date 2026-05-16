@@ -21,13 +21,13 @@ license="MIT"
 [[mods]] #mandatory
 
 # The modid of the mod
-modId="toolsfordays" #mandatory
+modId="thingsfordays" #mandatory
 
 # The version number of the mod
 version="0.0.1" #mandatory
 
 # A display name for the mod
-displayName="ToolsForDays" #mandatory
+displayName="ThingsForDays" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
@@ -61,14 +61,14 @@ A mod that adds a bunch of tools. Probably too much.
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.toolsfordays]]
+[[dependencies.thingsfordays]]
 modId="neoforge"
 type="required"
 versionRange="[21.1,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.toolsfordays]]
+[[dependencies.thingsfordays]]
 modId="minecraft"
 type="required"
 versionRange="[1.21.1,1.22)"

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "thingsfordays:bismuth_block",
+    "thingsfordays:bismuth_ore",
+    "thingsfordays:bismuth_deepslate_ore"
+  ]
+}

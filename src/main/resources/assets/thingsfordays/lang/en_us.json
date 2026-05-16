@@ -1,0 +1,16 @@
+{
+  "item.thingsfordays.bismuth": "Bismuth",
+  "item.thingsfordays.raw_bismuth": "Raw Bismuth",
+
+
+  "block.thingsfordays.bismuth_block": "Bismuth Block",
+  "block.thingsfordays.bismuth_ore": "Bismuth Ore",
+  "block.thingsfordays.bismuth_deepslate_ore": "Bismuth Deepslate Ore",
+
+
+  "creativetab.thingsfordays.tofd_tab": "Tools For Days",
+  "creativetab.thingsfordays.wfd_tab": "Weapons For Days",
+  "creativetab.thingsfordays.afd_tab": "Armor For Days",
+  "creativetab.thingsfordays.ofd_tab": "Ores For Days",
+  "creativetab.thingsfordays.rfd_tab": "Resources For Days"
+}

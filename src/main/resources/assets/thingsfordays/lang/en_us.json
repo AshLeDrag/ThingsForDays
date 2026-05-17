@@ -1,6 +1,17 @@
 {
   "item.thingsfordays.bismuth": "Bismuth",
   "item.thingsfordays.raw_bismuth": "Raw Bismuth",
+  "item.thingsfordays.pure_mana": "§n§l§o§dPure Mana",
+
+
+
+  "item.thingsfordays.radish": "Radish",
+
+
+
+
+
+  "item.thingsfordays.chisel": "Chisel",
 
 
   "block.thingsfordays.bismuth_block": "Bismuth Block",
@@ -8,9 +19,20 @@
   "block.thingsfordays.bismuth_deepslate_ore": "Bismuth Deepslate Ore",
 
 
-  "creativetab.thingsfordays.tofd_tab": "Tools For Days",
+  "block.thingsfordays.mana_block": "Block of Pure Mana",
+
+
+  "creativetab.thingsfordays.tfd_tab": "Tools For Days",
   "creativetab.thingsfordays.wfd_tab": "Weapons For Days",
   "creativetab.thingsfordays.afd_tab": "Armor For Days",
   "creativetab.thingsfordays.ofd_tab": "Ores For Days",
-  "creativetab.thingsfordays.rfd_tab": "Resources For Days"
+  "creativetab.thingsfordays.rfd_tab": "Resources For Days",
+  "creativetab.thingsfordays.bfd_tab": "Blocks For Days",
+  "creativetab.thingsfordays.fofd_tab": "Food For Days",
+  "creativetab.thingsfordays.fufd_tab": "Fuel For Days",
+
+
+  "tooltip.thingsfordays.mbshift": "A powerful block that purifies manna essence\n\nThrow Manna Essence onto it to gain Pure Mana",
+  "tooltip.thingsfordays.mb": "A powerful block that purifies manna essence §8Press [Shift] for usage info",
+  "tooltip.thingsfordays.radish.tooltip": "Taste good"
 }

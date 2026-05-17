@@ -1,6 +1,7 @@
 package net.AshLeDrag.thingsfordays.block;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
+import net.AshLeDrag.thingsfordays.block.custom.ManaBlock;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -36,6 +37,12 @@ public class ModBlocks {
                                                                                                                .strength(2f)
                                                                                                                .requiresCorrectToolForDrops()
                                                                                                                .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> MANA_BLOCK = registerBlock("mana_block",
+                                                                        () -> new ManaBlock(BlockBehaviour
+                                                                                                    .Properties.of()
+                                                                                                    .strength(2f)
+                                                                                                    .requiresCorrectToolForDrops()));
 
 
 

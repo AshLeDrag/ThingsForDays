@@ -1,15 +1,16 @@
 package net.AshLeDrag.thingsfordays.block;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
+import net.AshLeDrag.thingsfordays.block.custom.LampBlock;
 import net.AshLeDrag.thingsfordays.block.custom.ManaBlock;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -37,15 +38,21 @@ public class ModBlocks {
                                                                                                                .strength(2f)
                                                                                                                .requiresCorrectToolForDrops()
                                                                                                                .sound(SoundType.STONE)));
+    
+    public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
+                                                                          () -> new LampBlock(BlockBehaviour.Properties.of().strength(2f)
+                                                                                                       .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(LampBlock.CLICKED) ? 15 : 0)));
 
     public static final DeferredBlock<Block> MANA_BLOCK = registerBlock("mana_block",
                                                                         () -> new ManaBlock(BlockBehaviour
                                                                                                     .Properties.of()
                                                                                                     .strength(2f)
                                                                                                     .requiresCorrectToolForDrops()));
-
-
-
+    
+    
+    
+    
+    
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

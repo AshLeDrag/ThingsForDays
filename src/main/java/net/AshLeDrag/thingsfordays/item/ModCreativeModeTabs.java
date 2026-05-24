@@ -55,13 +55,12 @@ public class ModCreativeModeTabs {
                                   output.accept(ModBlocks.BISMUTH_ORE);
                                   output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
                                   output.accept(ModItems.RAW_BISMUTH);
-                                  output.accept(ModBlocks.MANA_BLOCK);
                               })).build());
 
     public static final Supplier<CreativeModeTab> BLOCKSFORDAYS = CREATIVE_MODE_TAB
             .register("blocksfordaystab",
                       () -> CreativeModeTab.builder()
-                              .icon(() -> new ItemStack(ModBlocks.BISMUTH_ORE.get()))
+                              .icon(() -> new ItemStack(ModBlocks.BISMUTH_BLOCK.get()))
                               .withTabsBefore(ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, "oresfordaystab"))
                               .title(Component.translatable("creativetab.thingsfordays.bfd_tab"))
                               .displayItems(((itemDisplayParameters, output) -> {
@@ -71,7 +70,7 @@ public class ModCreativeModeTabs {
     public static final Supplier<CreativeModeTab> RESOURCESFORDAYS = CREATIVE_MODE_TAB
             .register("resourcesfordaystab",
                       () -> CreativeModeTab.builder()
-                              .icon(() -> new ItemStack(ModBlocks.BISMUTH_ORE.get()))
+                              .icon(() -> new ItemStack(ModItems.PURE_MANA.get()))
                               .withTabsBefore(ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, "blocksfordaystab"))
                               .title(Component.translatable("creativetab.thingsfordays.rfd_tab"))
                               .displayItems(((itemDisplayParameters, output) -> {
@@ -95,7 +94,7 @@ public class ModCreativeModeTabs {
                               .withTabsBefore(ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, "foodfordaystab"))
                               .title(Component.translatable("creativetab.thingsfordays.fufd_tab"))
                               .displayItems(((itemDisplayParameters, output) -> {
-                                  output.accept(ModItems.PURE_MANA);
+                                  output.accept(ModItems.STARLIGHT_ASHES);
                               })).build());
 
     public static void register(IEventBus eventBus){

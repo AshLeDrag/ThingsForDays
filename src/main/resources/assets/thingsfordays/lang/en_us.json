@@ -20,6 +20,20 @@
 
 
   "block.thingsfordays.mana_block": "Block of Pure Mana",
+  "block.thingsfordays.bismuth_lamp": "Bismuth Lamp",
+
+  "block.thingsfordays.bismuth_stairs": "Bismuth Stairs",
+  "block.thingsfordays.bismuth_slab": "Bismuth Slab",
+
+  "block.thingsfordays.bismuth_button": "Bismuth Button",
+  "block.thingsfordays.bismuth_pressure_plate": "Bismuth Pressure Plate",
+
+  "block.thingsfordays.bismuth_fence": "Bismuth Fence",
+  "block.thingsfordays.bismuth_gate": "Bismuth Fence Gate",
+  "block.thingsfordays.bismuth_wall": "Bismuth Wall",
+
+  "block.thingsfordays.bismuth_door": "Bismuth Door",
+  "block.thingsfordays.bismuth_trapdoor": "Bismuth Trapdoor",
 
 
   "creativetab.thingsfordays.tfd_tab": "Tools For Days",
@@ -34,5 +48,8 @@
 
   "tooltip.thingsfordays.mbshift": "A powerful block that purifies manna essence\n\nThrow Manna Essence onto it to gain Pure Mana",
   "tooltip.thingsfordays.mb": "A powerful block that purifies manna essence §8Press [Shift] for usage info",
-  "tooltip.thingsfordays.radish.tooltip": "Taste good"
+  "tooltip.thingsfordays.radish+.tooltip": "Taste good",
+
+  "tooltip.thingsfordays.chisel.shift_down": "This Item can chisel Blocks into Bricks",
+  "tooltip.thingsfordays.chisel": "Press §eShift§r for more Information"
 }

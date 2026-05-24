@@ -30,7 +30,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		
 		
 		
-		
 	}
 	
 	protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

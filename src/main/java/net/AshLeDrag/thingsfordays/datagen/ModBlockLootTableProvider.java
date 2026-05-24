@@ -27,6 +27,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(ModBlocks.BISMUTH_BLOCK.get());
         dropSelf(ModBlocks.MANA_BLOCK.get());
+        dropSelf(ModBlocks.BISMUTH_LAMP.get());
 
         add(ModBlocks.BISMUTH_ORE.get(),
             block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));

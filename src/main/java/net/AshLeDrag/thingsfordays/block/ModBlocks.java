@@ -4,6 +4,9 @@ import net.AshLeDrag.thingsfordays.ThingsForDays;
 import net.AshLeDrag.thingsfordays.block.custom.LampBlock;
 import net.AshLeDrag.thingsfordays.block.custom.ManaBlock;
 import net.AshLeDrag.thingsfordays.item.ModItems;
+import net.AshLeDrag.thingsfordays.sound.ModSounds;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.datafix.fixes.BlockStateData;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -19,35 +22,29 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThingsForDays.MOD_ID);
-
-    public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock("bismuth_block",
-                                                                           () -> new Block(BlockBehaviour.Properties.of()
-                                                                                                   .strength(4f)
-                                                                                                   .requiresCorrectToolForDrops()
-                                                                                                   .sound(SoundType.AMETHYST)));
-    public static final DeferredBlock<Block> BISMUTH_ORE = registerBlock("bismuth_ore",
-                                                                         () -> new DropExperienceBlock(UniformInt.of(2, 4),
-                                                                                                       BlockBehaviour.Properties.of()
-                                                                                                               .strength(2f)
-                                                                                                               .requiresCorrectToolForDrops()
-                                                                                                               .sound(SoundType.STONE)));
-
-    public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = registerBlock("bismuth_deepslate_ore",
-                                                                         () -> new DropExperienceBlock(UniformInt.of(3, 6),
-                                                                                                       BlockBehaviour.Properties.of()
-                                                                                                               .strength(2f)
-                                                                                                               .requiresCorrectToolForDrops()
-                                                                                                               .sound(SoundType.STONE)));
     
-    public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
-                                                                          () -> new LampBlock(BlockBehaviour.Properties.of().strength(2f)
-                                                                                                       .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(LampBlock.CLICKED) ? 15 : 0)));
-
+    
     public static final DeferredBlock<Block> MANA_BLOCK = registerBlock("mana_block",
-                                                                        () -> new ManaBlock(BlockBehaviour
-                                                                                                    .Properties.of()
-                                                                                                    .strength(2f)
-                                                                                                    .requiresCorrectToolForDrops()));
+          () -> new ManaBlock(BlockBehaviour
+                                    .Properties.of()
+                                    .strength(2f)
+                                    .requiresCorrectToolForDrops()
+                                    .sound(ModSounds.MANA_BLOCK_SOUNDS)));
+    
+    
+    public static final DeferredBlock<Block> BREADINIUM_ORE = registerBlock("breadinium_ore",
+          () -> new DropExperienceBlock(UniformInt.of(2, 4),
+                BlockBehaviour.Properties.of()
+                      .strength(3f)
+                      .requiresCorrectToolForDrops()
+                      .sound(SoundType.STONE)));
+    
+    public static final DeferredBlock<Block> BREADINIUM_DEEPSLATE_ORE = registerBlock("breadinium_deepslate_ore",
+          () -> new DropExperienceBlock(UniformInt.of(3, 6),
+                BlockBehaviour.Properties.of()
+                      .strength(4f)
+                      .requiresCorrectToolForDrops()
+                      .sound(SoundType.DEEPSLATE)));
     
     
     

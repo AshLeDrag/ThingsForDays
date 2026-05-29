@@ -21,14 +21,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	@Override
 	protected void registerStatesAndModels() {
 		// cubeAll Blocks
-		blockWithItem(ModBlocks.BISMUTH_BLOCK);
-		blockWithItem(ModBlocks.BISMUTH_ORE);
-		blockWithItem(ModBlocks.BISMUTH_DEEPSLATE_ORE);
 		blockWithItem(ModBlocks.MANA_BLOCK);
+		blockWithItem(ModBlocks.BREADINIUM_DEEPSLATE_ORE);
+		blockWithItem(ModBlocks.BREADINIUM_ORE);
 		
 		
 		// customLamp Blocks
-		customLamp(ModBlocks.BISMUTH_LAMP.get(), "bismuth_lamp");
 	}
 	
 	

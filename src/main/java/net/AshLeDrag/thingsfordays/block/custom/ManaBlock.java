@@ -13,7 +13,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -41,7 +40,7 @@ public class ManaBlock extends Block {
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof ItemEntity itemEntity){
             if(isValidItem(itemEntity.getItem())){
-                itemEntity.setItem(new ItemStack(ModItems.PURE_MANA.get(), itemEntity.getItem().getCount()));
+                itemEntity.setItem(new ItemStack(ModItems.Mana.Resource.PURE_MANA.get(), itemEntity.getItem().getCount()));
             }
         }
         super.stepOn(level, pos, state, entity);

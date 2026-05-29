@@ -1,7 +1,6 @@
 package net.AshLeDrag.thingsfordays.datagen;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
-import net.AshLeDrag.thingsfordays.block.ModBlocks;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -20,12 +19,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	
 	@Override
 	protected void buildRecipes(RecipeOutput recipeOutput) {
-		List<ItemLike> BISMUTH_SMELTABLES = List.of(ModItems.RAW_BISMUTH,
-		                                            ModBlocks.BISMUTH_ORE, ModBlocks.BISMUTH_DEEPSLATE_ORE);
 		
-		oreRecipies(recipeOutput, BISMUTH_SMELTABLES, RecipeCategory.MISC, ModItems.BISMUTH.get(), ModBlocks.BISMUTH_BLOCK.get(), 0.25f, 100, "bismuth");
-		
-		
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.HAMMER.get())
+				.requires(ModItems.Breadinium.Tools.AXE_HAMMER)
+				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.PICKAXE_HAMMER.get())
+				.requires(ModItems.Breadinium.Tools.HAMMER)
+				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.SHOVEL_HAMMER.get())
+				.requires(ModItems.Breadinium.Tools.PICKAXE_HAMMER)
+				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.AXE_HAMMER.get())
+				.requires(ModItems.Breadinium.Tools.SHOVEL_HAMMER)
+				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
 		
 		
 		

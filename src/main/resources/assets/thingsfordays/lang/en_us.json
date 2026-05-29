@@ -1,55 +1,67 @@
 {
-  "item.thingsfordays.bismuth": "Bismuth",
-  "item.thingsfordays.raw_bismuth": "Raw Bismuth",
   "item.thingsfordays.pure_mana": "§n§l§o§dPure Mana",
 
 
 
-  "item.thingsfordays.radish": "Radish",
 
 
-
-
-
-  "item.thingsfordays.chisel": "Chisel",
-
-
-  "block.thingsfordays.bismuth_block": "Bismuth Block",
-  "block.thingsfordays.bismuth_ore": "Bismuth Ore",
-  "block.thingsfordays.bismuth_deepslate_ore": "Bismuth Deepslate Ore",
 
 
   "block.thingsfordays.mana_block": "Block of Pure Mana",
-  "block.thingsfordays.bismuth_lamp": "Bismuth Lamp",
-
-  "block.thingsfordays.bismuth_stairs": "Bismuth Stairs",
-  "block.thingsfordays.bismuth_slab": "Bismuth Slab",
-
-  "block.thingsfordays.bismuth_button": "Bismuth Button",
-  "block.thingsfordays.bismuth_pressure_plate": "Bismuth Pressure Plate",
-
-  "block.thingsfordays.bismuth_fence": "Bismuth Fence",
-  "block.thingsfordays.bismuth_gate": "Bismuth Fence Gate",
-  "block.thingsfordays.bismuth_wall": "Bismuth Wall",
-
-  "block.thingsfordays.bismuth_door": "Bismuth Door",
-  "block.thingsfordays.bismuth_trapdoor": "Bismuth Trapdoor",
 
 
   "creativetab.thingsfordays.tfd_tab": "Tools For Days",
+  "item.thingsfordays.breadinium_axe": "Breadinium Axe",
+  "item.thingsfordays.breadinium_pickaxe": "Breadinium Pickaxe",
+  "item.thingsfordays.breadinium_shovel": "Breadinium Shovel",
+  "item.thingsfordays.breadinium_hoe": "Breadinium Hoe",
+  "item.thingsfordays.breadinium_hammer": "Breadinium Hammer",
+  "item.thingsfordays.breadinium_wood_hammer": "Breadinium Wood Hammer",
+  "item.thingsfordays.breadinium_pickaxe_hammer": "Breadinium Pickaxe Hammer",
+  "item.thingsfordays.breadinium_shovel_hammer": "Breadinium Shovel Hammer",
+
   "creativetab.thingsfordays.wfd_tab": "Weapons For Days",
+  "item.thingsfordays.breadinium_sword": "Breadinium Sword",
+
+
+
   "creativetab.thingsfordays.afd_tab": "Armor For Days",
+  "item.thingsfordays.breadinium_helmet": "Breadinium Helmet",
+  "item.thingsfordays.breadinium_chestplate": "Breadinium Chestplate",
+  "item.thingsfordays.breadinium_leggings": "Breadinium Leggings",
+  "item.thingsfordays.breadinium_boots": "Breadinium Boots",
+  "item.thingsfordays.breadiniumm_horse_armor": "Breadinium Horse Armor",
+
   "creativetab.thingsfordays.ofd_tab": "Ores For Days",
+
   "creativetab.thingsfordays.rfd_tab": "Resources For Days",
+
   "creativetab.thingsfordays.bfd_tab": "Blocks For Days",
+
   "creativetab.thingsfordays.fofd_tab": "Food For Days",
+  "item.thingsfordays.radish": "Radish",
+
   "creativetab.thingsfordays.fufd_tab": "Fuel For Days",
+
+  "creativetab.thingsfordays.pfd_tab": "Potions For Days",
+
+  "item.minecraft.potion.effect.slimey_potion": "Potion of Slimeyness",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Splash Potion of Slimeyness",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Lingering Potion of Slimeyness",
+
 
 
   "tooltip.thingsfordays.mbshift": "A powerful block that purifies manna essence\n\nThrow Manna Essence onto it to gain Pure Mana",
   "tooltip.thingsfordays.mb": "A powerful block that purifies manna essence §8Press [Shift] for usage info",
-  "tooltip.thingsfordays.radish+.tooltip": "Taste good",
+  "tooltip.thingsfordays.radish.tooltip": "Taste good",
 
   "tooltip.thingsfordays.chisel.shift_down": "This Item can chisel Blocks into Bricks",
-  "tooltip.thingsfordays.chisel": "Press §eShift§r for more Information"
+  "tooltip.thingsfordays.chisel": "Press §eShift§r for more Information",
+
+
+  "tooltip.thingsfordays.breadinium_hammer": "A useful tool that combines shovel and pickaxe and can dig out a 3x3x3 hole.",
+  "tooltip.thingsfordays.breadinium_wood_hammer": "Just like a normal hammer but for §6§lWOOD§r. digs a 3x3x3 hole",
+  "tooltip.thingsfordays.breadinium_pickaxe_hammer": "Just like a normal hammer but only for §6§lSTONE§r and alike. digs a 3x3x3 hole",
+  "tooltip.thingsfordays.breadinium_shovel_hammer": "Just like a normal hammer but only for §6§lDIRT§r and alike. digs a 3x3x3 hole",
+  "creativetab.thingsfordays.tfda_tab": "Things For Days' Additions"
 }

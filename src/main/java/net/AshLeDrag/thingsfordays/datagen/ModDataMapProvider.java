@@ -3,7 +3,6 @@ package net.AshLeDrag.thingsfordays.datagen;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
@@ -20,6 +19,6 @@ public class ModDataMapProvider extends DataMapProvider {
 	@Override
 	protected void gather(HolderLookup.Provider provider) {
 		this.builder(NeoForgeDataMaps.FURNACE_FUELS)
-			.add(ModItems.STARLIGHT_ASHES.getId(), new FurnaceFuel(1200), false);
+			.add(ModItems.Fuels.STARLIGHT_ASHES.getId(), new FurnaceFuel(1200), false);
 	}
 }

@@ -22,54 +22,53 @@ import java.util.List;
 import java.util.Map;
 
 public class ChiselItem extends Item {
-    private static final Map<Block, Block> CHISEL_MAP =
-            Map.of(
-                    Blocks.STONE, Blocks.STONE_BRICKS,
-                    Blocks.END_STONE, Blocks.END_STONE_BRICKS,
-                    Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
-                    Blocks.GOLD_BLOCK, Blocks.IRON_BLOCK,
-                    Blocks.IRON_BLOCK, Blocks.STONE,
-                    Blocks.NETHERRACK, ModBlocks.BISMUTH_BLOCK.get(),
-                    ModBlocks.BISMUTH_BLOCK.get(), Blocks.GOLD_BLOCK
-                  );
-
-    public ChiselItem(Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public InteractionResult useOn(UseOnContext context) {
-        Level level = context.getLevel();
-        Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
-        
-        if(CHISEL_MAP.containsKey(clickedBlock)) {
-            if(!level.isClientSide()) {
-                level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get(clickedBlock).defaultBlockState());
-                
-                context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), context.getPlayer(),
-                                                     item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
-                
-                level.playSound(null, context.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
-                
-                context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());
-            }
-        }
-        
-        return InteractionResult.SUCCESS;
-    }
-    
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        if(Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("tooltip.thingsfordays.chisel.shift_down"));
-        } else {
-            tooltipComponents.add(Component.translatable("tooltip.thingsfordays.chisel"));
-        }
-        
-        if(stack.get(ModDataComponents.COORDINATES) != null) {
-            tooltipComponents.add(Component.literal("Last Block changed at " + stack.get(ModDataComponents.COORDINATES)));
-        }
-        
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-    }
+		private static final Map<Block, Block> CHISEL_MAP =
+				Map.of(
+						Blocks.STONE, Blocks.STONE_BRICKS,
+						Blocks.END_STONE, Blocks.END_STONE_BRICKS,
+						Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
+						Blocks.GOLD_BLOCK, Blocks.IRON_BLOCK,
+						Blocks.IRON_BLOCK, Blocks.STONE,
+						Blocks.NETHERRACK, ModBlocks.BREADINIUM_ORE.get()
+						);
+		
+		public ChiselItem(Properties properties) {
+				super(properties);
+		}
+		
+		@Override
+		public InteractionResult useOn(UseOnContext context) {
+				Level level = context.getLevel();
+				Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
+				
+				if(CHISEL_MAP.containsKey(clickedBlock)) {
+						if(!level.isClientSide()) {
+								level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get(clickedBlock).defaultBlockState());
+								
+								context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), context.getPlayer(),
+										item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
+								
+								level.playSound(null, context.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
+								
+								context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());
+						}
+				}
+				
+				return InteractionResult.SUCCESS;
+		}
+		
+		@Override
+		public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+				if(Screen.hasShiftDown()) {
+						tooltipComponents.add(Component.translatable("tooltip.tutorialmod.chisel.shift_down"));
+				} else {
+						tooltipComponents.add(Component.translatable("tooltip.tutorialmod.chisel"));
+				}
+				
+				if(stack.get(ModDataComponents.COORDINATES) != null) {
+						tooltipComponents.add(Component.literal("Last Block changed at " + stack.get(ModDataComponents.COORDINATES)));
+				}
+				
+				super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+		}
 }

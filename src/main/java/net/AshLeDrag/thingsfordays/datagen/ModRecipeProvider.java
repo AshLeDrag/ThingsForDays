@@ -5,6 +5,7 @@ import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -13,66 +14,114 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
-	public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-		super(output, registries);
-	}
-	
-	@Override
-	protected void buildRecipes(RecipeOutput recipeOutput) {
-		
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.HAMMER.get())
-				.requires(ModItems.Breadinium.Tools.AXE_HAMMER)
-				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.PICKAXE_HAMMER.get())
-				.requires(ModItems.Breadinium.Tools.HAMMER)
-				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.SHOVEL_HAMMER.get())
-				.requires(ModItems.Breadinium.Tools.PICKAXE_HAMMER)
-				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.AXE_HAMMER.get())
-				.requires(ModItems.Breadinium.Tools.SHOVEL_HAMMER)
-				.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
-		
-		
-		
-		
-	}
-	
-	protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-	                                  float pExperience, int pCookingTIme, String pGroup) {
-		oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
-		           pExperience, pCookingTIme, pGroup, "_from_smelting");
-	}
-	
-	protected static void oreBlasting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-	                                  float pExperience, int pCookingTime, String pGroup) {
-		oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
-		           pExperience, pCookingTime, pGroup, "_from_blasting");
-	}
-	
-	protected static void oreRecipies(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, ItemLike pBlock,
-	                                  float pExperience, int pCookingTime, String pGroup) {
-		
-		oreSmelting(recipeOutput, pIngredients, pCategory, pResult, pExperience, pCookingTime*2, pGroup);
-		oreBlasting(recipeOutput, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup);
-		
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBlock)
-			.pattern("BBB")
-			.pattern("BBB")
-			.pattern("BBB")
-			.define('B', pResult)
-			.unlockedBy("has_" + getItemName(pResult), has(pResult)).save(recipeOutput);
-		
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 9)
-			.requires(pBlock)
-			.unlockedBy("has_" + getItemName(pBlock), has(pBlock)).save(recipeOutput);
-	}
-	
-	protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,
-	                                                                   List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
-		for(ItemLike itemlike : pIngredients) {
-			SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
-				.save(recipeOutput, ThingsForDays.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+		public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+				super(output, registries);
 		}
-	}
+		
+		@Override
+		protected void buildRecipes(RecipeOutput recipeOutput) {
+				
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.HAMMER.get())
+						.requires(ModItems.Breadinium.Tools.AXE_HAMMER)
+						.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.PICKAXE_HAMMER.get())
+						.requires(ModItems.Breadinium.Tools.HAMMER)
+						.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.SHOVEL_HAMMER.get())
+						.requires(ModItems.Breadinium.Tools.PICKAXE_HAMMER)
+						.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.AXE_HAMMER.get())
+						.requires(ModItems.Breadinium.Tools.SHOVEL_HAMMER)
+						.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
+				
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.STEEL_THROWABLE)
+						.pattern("SMS")
+						.pattern("SSS")
+						.pattern("LTL")
+						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
+						.define('M', ModItems.Mana.Resource.PURE_MANA)
+						.define('L', Items.LEATHER)
+						.define('T', Items.STICK)
+						.unlockedBy("has_pure_mana", has(ModItems.Mana.Resource.PURE_MANA))
+						.unlockedBy("has_stainless_steel_ingot", has(ModItems.Steel.Stainless.Resource.INGOT)).save(recipeOutput);
+				
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.TELEPORT_SWORD)
+						.pattern("SMS")
+						.pattern("SSS")
+						.pattern("LTL")
+						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
+						.define('M', ModItems.Resource.SUPERPEARL)
+						.define('L', Items.LEATHER)
+						.define('T', Items.STICK)
+						.unlockedBy("has_super_pearl", has(ModItems.Resource.SUPERPEARL))
+						.unlockedBy("has_stainless_steel_ingot", has(ModItems.Steel.Stainless.Resource.INGOT)).save(recipeOutput);
+				
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.HARDENED_SWORD)
+						.pattern("SMS")
+						.pattern("SSS")
+						.pattern("LTL")
+						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
+						.define('M', ModItems.Mana.Resource.PURE_MANA)
+						.define('L', Items.LEATHER)
+						.define('T', Items.STICK)
+						.unlockedBy("has_pure_mana", has(ModItems.Mana.Resource.PURE_MANA))
+						.unlockedBy("has_hardened_steel_ingot", has(ModItems.Steel.Resource.HARDENED_INGOT)).save(recipeOutput);
+				
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.HARDENED_TELEPORT_SWORD.get())
+						.pattern("SMS")
+						.pattern("SSS")
+						.pattern("LTL")
+						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
+						.define('M', ModItems.Mana.Resource.PURE_MANA)
+						.define('L', Items.LEATHER)
+						.define('T', Items.STICK)
+						.unlockedBy("has_super_pearl", has(ModItems.Resource.SUPERPEARL))
+						.unlockedBy("has_hardened_steel_ingot", has(ModItems.Steel.Resource.HARDENED_INGOT)).save(recipeOutput);
+				
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.GATHER_SWORD)
+						.pattern(" C ")
+						.pattern("CSC")
+						.pattern(" C ")
+						.define('S', ModItems.Weapons.STEEL_THROWABLE)
+						.define('C', Items.CHEST)
+						.unlockedBy("has_stainless_stee_ingot", has(ModItems.Weapons.STEEL_THROWABLE)).save(recipeOutput);
+		}
+		
+		protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+				float pExperience, int pCookingTIme, String pGroup) {
+				oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
+						pExperience, pCookingTIme, pGroup, "_from_smelting");
+		}
+		
+		protected static void oreBlasting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+				float pExperience, int pCookingTime, String pGroup) {
+				oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
+						pExperience, pCookingTime, pGroup, "_from_blasting");
+		}
+		
+		protected static void oreRecipies(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, ItemLike pBlock,
+				float pExperience, int pCookingTime, String pGroup) {
+				
+				oreSmelting(recipeOutput, pIngredients, pCategory, pResult, pExperience, pCookingTime*2, pGroup);
+				oreBlasting(recipeOutput, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup);
+				
+				ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBlock)
+						.pattern("BBB")
+						.pattern("BBB")
+						.pattern("BBB")
+						.define('B', pResult)
+						.unlockedBy("has_" + getItemName(pResult), has(pResult)).save(recipeOutput);
+				
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 9)
+						.requires(pBlock)
+						.unlockedBy("has_" + getItemName(pBlock), has(pBlock)).save(recipeOutput);
+		}
+		
+		protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,
+				List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+				for(ItemLike itemlike : pIngredients) {
+						SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
+								.save(recipeOutput, ThingsForDays.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+				}
+		}
 }

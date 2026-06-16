@@ -1,6 +1,7 @@
 package net.AshLeDrag.thingsfordays.datagen;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
+import net.AshLeDrag.thingsfordays.block.ModBlocks;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -54,6 +55,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 				basicItem(ModItems.Chromium.Resource.RAW.get());
 				basicItem(ModItems.Chromium.Resource.INGOT.get());
 				basicItem(ModItems.Chromium.Resource.NUGGET.get());
+				basicItem(ModItems.Foods.RADISH_SEEDS.get());
 				
 				// handheldItem Items
 				handheldItem(ModItems.Breadinium.Weapons.SWORD);
@@ -73,6 +75,16 @@ public class ModItemModelProvider extends ItemModelProvider {
 				trimmedArmorItem(ModItems.Breadinium.Armor.BOOTS);
 				basicItem(ModItems.Breadinium.Armor.HORSE.get());
 				
+				
+				
+				// Saplings
+				saplingItem(ModBlocks.REDWOOD_SAPLING);
+		}
+		
+		private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
+				return withExistingParent(item.getId().getPath(),
+						ResourceLocation.parse("item/generated")).texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,"block/" + item.getId().getPath()));
 		}
 		
 		// Shoutout to El_Redstoniano for making this
@@ -121,28 +133,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 						});
 				}
 		}
-			
-			public void buttonItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
-				this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
-					.texture("texture",  ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,
-																																		 "block/" + baseBlock.getId().getPath()));
-			}
-			
-			public void fenceItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
-				this.withExistingParent(block.getId().getPath(), mcLoc("block/fence_inventory"))
-					.texture("texture",  ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,
-																																		 "block/" + baseBlock.getId().getPath()));
-			}
-			
-			public void wallItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
-				this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
-					.texture("wall",  ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,
-																																	"block/" + baseBlock.getId().getPath()));
-			}
-				
-				private ItemModelBuilder handheldItem(DeferredItem<?> item) {
-						return withExistingParent(item.getId().getPath(),
-								ResourceLocation.parse("item/handheld")).texture("layer0",
-								ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,"item/" + item.getId().getPath()));
-				}
+		
+		private ItemModelBuilder handheldItem(DeferredItem<?> item) {
+				return withExistingParent(item.getId().getPath(),
+						ResourceLocation.parse("item/handheld")).texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,"item/" + item.getId().getPath()));
+		}
 }

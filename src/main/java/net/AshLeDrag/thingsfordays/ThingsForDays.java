@@ -1,30 +1,34 @@
 package net.AshLeDrag.thingsfordays;
 
+import com.mojang.logging.LogUtils;
 import net.AshLeDrag.thingsfordays.block.ModBlocks;
 import net.AshLeDrag.thingsfordays.component.ModDataComponents;
 import net.AshLeDrag.thingsfordays.effect.ModEffects;
+import net.AshLeDrag.thingsfordays.enchantment.ModEnchantmentEffects;
+import net.AshLeDrag.thingsfordays.entity.ModEntities;
+import net.AshLeDrag.thingsfordays.entity.client.SteelThrowableRendered;
+import net.AshLeDrag.thingsfordays.entity.client.TeleportSwordRendered;
 import net.AshLeDrag.thingsfordays.item.ModCreativeModeTabs;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.AshLeDrag.thingsfordays.potion.ModPotions;
 import net.AshLeDrag.thingsfordays.sound.ModSounds;
 import net.AshLeDrag.thingsfordays.util.ModItemProperties;
+import net.AshLeDrag.thingsfordays.worldgen.ModTrunkPlacerTypes;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ThingsForDays.MOD_ID)
@@ -52,6 +56,11 @@ public class ThingsForDays {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        
+        ModEnchantmentEffects.register(modEventBus);
+        ModTrunkPlacerTypes.TRUNK_PLACER_TYPES.register(modEventBus);
+        
+        ModEntities.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -60,6 +69,8 @@ public class ThingsForDays {
     private void commonSetup(FMLCommonSetupEvent event) {
 
     }
+    
+    
     
     
     
@@ -80,6 +91,24 @@ public class ThingsForDays {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+            
+            EntityRenderers.register(ModEntities.STEEL_THROWABLE.get(), SteelThrowableRendered::new);
+            EntityRenderers.register(ModEntities.TELEPORT_SWORD.get(), TeleportSwordRendered::new);
+//            EntityRenderers.register(ModEntities.HARDENED_SWORD.get(), SteelThrowableRendered::new);
+//            EntityRenderers.register(ModEntities.TELEPORT_HARDENED_SWORD.get(), SteelThrowableRendered::new);
+//            EntityRenderers.register(ModEntities.GATHER_SWORD.get(), SteelThrowableRendered::new);
         }
     }
 }
+
+// ================================================ TODOS ================================================ \\
+
+/*
+ * TODO: Make zworb (zombie sword) that spawns zombies which attack enemies
+ * TODO: Make a Breader (block) that transforms breadinium and milk into dough
+ *
+ *
+ *
+ *
+ */
+ 

@@ -2,16 +2,21 @@ package net.AshLeDrag.thingsfordays.datagen;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
 import net.AshLeDrag.thingsfordays.block.ModBlocks;
-import net.AshLeDrag.thingsfordays.block.custom.LampBlock;
+import net.AshLeDrag.thingsfordays.block.custom.RadishCropBlock;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+
+import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 	public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -20,35 +25,60 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	
 	@Override
 	protected void registerStatesAndModels() {
-		// cubeAll Blocks
-		blockWithItem(ModBlocks.MANA_BLOCK);
-		blockWithItem(ModBlocks.BREADINIUM_DEEPSLATE_ORE);
-		blockWithItem(ModBlocks.BREADINIUM_ORE);
-		
-		
-		// customLamp Blocks
+			// cubeAll Blocks
+			blockWithItem(ModBlocks.MANA_BLOCK);
+			blockWithItem(ModBlocks.BREADINIUM_DEEPSLATE_ORE);
+			blockWithItem(ModBlocks.BREADINIUM_ORE);
+			blockWithItem(ModBlocks.BREADINIUM_NETHER_ORE);
+			blockWithItem(ModBlocks.BREADINIUM_END_ORE);
+			
+			logBlock(((RotatedPillarBlock) ModBlocks.REDWOOD_LOG.get()));
+			axisBlock(((RotatedPillarBlock) ModBlocks.REDWOOD_WOOD.get()), blockTexture(ModBlocks.REDWOOD_LOG.get()), blockTexture(ModBlocks.REDWOOD_LOG.get()));
+			logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_REDWOOD_LOG.get()));
+			axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_REDWOOD_WOOD.get()), blockTexture(ModBlocks.STRIPPED_REDWOOD_LOG.get()), blockTexture(ModBlocks.STRIPPED_REDWOOD_LOG.get()));
+			
+			blockItem(ModBlocks.REDWOOD_LOG);
+			blockItem(ModBlocks.REDWOOD_WOOD);
+			blockItem(ModBlocks.STRIPPED_REDWOOD_LOG);
+			blockItem(ModBlocks.STRIPPED_REDWOOD_WOOD);
+			
+			blockWithItem(ModBlocks.REDWOOD_PLANKS);
+			
+			leavesBlock(ModBlocks.REDWOOD_LEAVES);
+			saplingBlock(ModBlocks.REDWOOD_SAPLING);
+			
+			
+			
+			
+			
+			// Crops
+			makeCrop(((CropBlock) ModBlocks.RADISH_CROP.get()), "radish_crop_stage");
 	}
 	
-	
-	private void customLamp(Block lamp, String name) {
-		getVariantBuilder(lamp).forAllStates(state -> {
-			if (state.getValue(LampBlock.CLICKED)) {
-				return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_on",
-																																					ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,
-																																																								"block/" + name + "_on")))};
-			} else {
-				return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_off",
-																																					ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,
-																																																								"block/" + name + "_off")))};
-			}
-		});
-		
-		simpleBlockItem(lamp,
-										models().cubeAll(name + "_on",
-																		 ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID,
-																																					 "block/" + name + "_on")));
+	private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {
+			simpleBlock(blockRegistryObject.get(),
+							models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
 	}
 	
+	private void leavesBlock(DeferredBlock<Block> blockRegistryObject) {
+			simpleBlockWithItem(blockRegistryObject.get(),
+									  models().singleTexture(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+																	 "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+	}
+		
+	public void makeCrop(CropBlock block, String modelName) {
+			Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName);
+			
+			getVariantBuilder(block).forAllStates(function);
+	}
+		
+	private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName) {
+			ConfiguredModel[] models = new ConfiguredModel[1];
+			models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((RadishCropBlock) block).getAgeProperty()),
+					ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, "block/" + modelName + state.getValue(((RadishCropBlock) block).getAgeProperty()))).renderType("cutout"));
+			
+			return models;
+	}
 	
 	public void blockWithItem(DeferredBlock<?> deferredBlock) {
 		simpleBlockWithItem(deferredBlock.get(),cubeAll(deferredBlock.get()));

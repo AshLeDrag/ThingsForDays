@@ -1,11 +1,13 @@
 package net.AshLeDrag.thingsfordays.util;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
@@ -38,9 +40,19 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> ESSENCE_TO_MANA = createTag("essence_to_mana");
+        public static final TagKey<Item> COLOSSAL_SWORD_ENCHANTABLE = createTag("colossal_enchantable");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, name));
+        }
+    }
+    
+    public static class Enchantments {
+        public static final TagKey<Enchantment> RETURN_EXCLUSIVES = createTag("colossal_sword_return_exclusives");
+        
+        private static TagKey<Enchantment> createTag(String name) {
+            return TagKey.create(Registries.ENCHANTMENT,
+                  ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, name));
         }
     }
 }

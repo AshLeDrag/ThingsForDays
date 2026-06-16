@@ -3,7 +3,6 @@ package net.AshLeDrag.thingsfordays.item.custom;
 import net.AshLeDrag.thingsfordays.block.ModBlocks;
 import net.AshLeDrag.thingsfordays.component.ModDataComponents;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;

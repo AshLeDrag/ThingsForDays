@@ -42,11 +42,11 @@ displayName="ThingsForDays" #mandatory
 #credits="" #optional
 
 # The authors of the mod, displayed in the mod UI (optional)
-authors="AshLeDrag"
+authors="AshLeDrag, isjwjwjw"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-A mod that adds a bunch of tools. Probably too much.
+A mod that adds a bunch of things. Probably too many.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

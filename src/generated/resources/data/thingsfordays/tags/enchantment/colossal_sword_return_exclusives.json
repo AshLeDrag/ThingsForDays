@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "thingsfordays:teleportation_with_colossal_sword",
+      "required": false
+    },
+    {
+      "id": "thingsfordays:gather",
+      "required": false
+    },
+    {
+      "id": "minecraft:loyalty",
+      "required": false
+    }
+  ]
+}

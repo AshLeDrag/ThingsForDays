@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#thingsfordays:needs_breadinium_tool"
+  ],
+  "values": [
+    "#minecraft:incorrect_for_iron_tool"
+  ]
+}

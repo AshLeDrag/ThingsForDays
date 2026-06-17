@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stainless_stee_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "thingsfordays:steel_throwable"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thingsfordays:gather_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stainless_stee_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thingsfordays:gather_sword"
+    ]
+  }
+}

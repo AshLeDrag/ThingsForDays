@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "thingsfordays:block/breadinium_end_ore"
+  }
+}

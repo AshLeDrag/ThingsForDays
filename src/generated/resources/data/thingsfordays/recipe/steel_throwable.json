@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "M": {
+      "item": "thingsfordays:pure_mana"
+    },
+    "S": {
+      "item": "thingsfordays:stainless_steel_ingot"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "SMS",
+    "SSS",
+    "LTL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "thingsfordays:steel_throwable"
+  }
+}

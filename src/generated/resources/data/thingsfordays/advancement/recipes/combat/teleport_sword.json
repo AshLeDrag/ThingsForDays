@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stainless_steel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "thingsfordays:stainless_steel_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_super_pearl": {
+      "conditions": {
+        "items": [
+          {
+            "items": "thingsfordays:super_pearl"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thingsfordays:teleport_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_super_pearl",
+      "has_stainless_steel_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thingsfordays:teleport_sword"
+    ]
+  }
+}

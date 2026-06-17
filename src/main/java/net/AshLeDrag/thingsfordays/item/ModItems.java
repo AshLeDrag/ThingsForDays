@@ -20,15 +20,15 @@ public class ModItems {
 		}
 		
 		public static class Weapons {
-				public static final DeferredItem<Item> STEEL_THROWABLE = ITEMS.register("steel_throwable", () -> new ThrowSwordItem(new Item.Properties().stacksTo(1)
+				public static final DeferredItem<Item> COLOSSAL_SWORD = ITEMS.register("steel_throwable", () -> new ThrowableItem(new Item.Properties().stacksTo(1)
 						                                                                                                                    .durability(700), 72000));
-				public static final DeferredItem<Item> TELEPORT_SWORD = ITEMS.register("teleport_sword", () -> new TeleportSwordItem(new Item.Properties().stacksTo(1)
+				public static final DeferredItem<Item> TELEPORT_SPEAR = ITEMS.register("teleport_sword", () -> new TeleportSwordItem(new Item.Properties().stacksTo(1)
 																																												.durability(700), 72000));
-				public static final DeferredItem<Item> HARDENED_SWORD = ITEMS.register("hardened_sword", () -> new ThrowSwordItem(new Item.Properties().stacksTo(1)
+				public static final DeferredItem<Item> HARDENED_SWORD = ITEMS.register("hardened_sword", () -> new ThrowableItem(new Item.Properties().stacksTo(1)
 						                                                                                                                   .durability(700), 72000));
-				public static final DeferredItem<Item> HARDENED_TELEPORT_SWORD = ITEMS.register("hardened_teleport_sword", () -> new ThrowSwordItem(new Item.Properties().stacksTo(1)
+				public static final DeferredItem<Item> HARDENED_TELEPORT_SWORD = ITEMS.register("hardened_teleport_sword", () -> new ThrowableItem(new Item.Properties().stacksTo(1)
 						                                                                                                                            .durability(700), 72000));
-				public static final DeferredItem<Item> GATHER_SWORD = ITEMS.register("gather_sword", () -> new ThrowSwordItem(new Item.Properties().stacksTo(1)
+				public static final DeferredItem<Item> GATHER_SWORD = ITEMS.register("gather_sword", () -> new ThrowableItem(new Item.Properties().stacksTo(1)
 						                                                                                                                 .durability(700), 72000));
 		}
 		

@@ -25,7 +25,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 						.add(ModItems.Mana.Resource.MANA_ESSENCE.get());
 				
 				tag(ModTags.Items.COLOSSAL_SWORD_ENCHANTABLE)
-						.add(ModItems.Weapons.STEEL_THROWABLE.get());
+						.add(ModItems.Weapons.COLOSSAL_SWORD.get());
 				
 				tag(ItemTags.SWORDS)
 						.add(ModItems.Breadinium.Weapons.SWORD.get());
@@ -46,7 +46,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 						.add(ModItems.Breadinium.Tools.HOE.get());
 				
 				tag(ItemTags.TRIDENT_ENCHANTABLE)
-						.add(ModItems.Weapons.STEEL_THROWABLE.get());
+						.add(ModItems.Weapons.COLOSSAL_SWORD.get());
 				
 				tag(ItemTags.TRIMMABLE_ARMOR)
 						.add(ModItems.Breadinium.Armor.HELMET.get())

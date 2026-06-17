@@ -3,7 +3,7 @@ package net.AshLeDrag.thingsfordays.entity.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.AshLeDrag.thingsfordays.ThingsForDays;
-import net.AshLeDrag.thingsfordays.entity.custom.TeleportSwordProjectileEntity;
+import net.AshLeDrag.thingsfordays.entity.custom.TeleportSpearProjectileEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -11,12 +11,12 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 
-public class TeleportSwordModel extends EntityModel<TeleportSwordProjectileEntity> {
+public class TeleportSpearModel extends EntityModel<TeleportSpearProjectileEntity> {
 		// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 		public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThingsForDays.MOD_ID, "teleport_sword"), "main");
 		private final ModelPart bb_main;
 		
-		public TeleportSwordModel(ModelPart root) {
+		public TeleportSpearModel(ModelPart root) {
 				this.bb_main = root.getChild("bb_main");
 		}
 		
@@ -48,7 +48,8 @@ public class TeleportSwordModel extends EntityModel<TeleportSwordProjectileEntit
 		}
 		
 		@Override
-		public void setupAnim(TeleportSwordProjectileEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {}
+		public void setupAnim(
+				TeleportSpearProjectileEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {}
 		
 		@Override
 		public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {

@@ -25,7 +25,7 @@ public class ModClientEvents {
 						fovModifier *= 1f - deltaTicks * 0.15f;
 						event.setNewFovModifier(fovModifier);
 				}
-				if(event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().getItem() == ModItems.Weapons.STEEL_THROWABLE.get()) {
+				if(event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().getItem() == ModItems.Weapons.COLOSSAL_SWORD.get()) {
 						float fovModifier = 1f;
 						int ticksUsingItem = event.getPlayer().getTicksUsingItem();
 						float deltaTicks = (float)ticksUsingItem / 20f;

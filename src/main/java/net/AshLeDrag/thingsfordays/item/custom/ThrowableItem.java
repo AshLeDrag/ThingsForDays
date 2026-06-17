@@ -33,14 +33,14 @@ import net.neoforged.neoforge.common.ItemAbility;
 
 import java.util.List;
 
-public class ThrowSwordItem extends TridentItem {
+public class ThrowableItem extends TridentItem {
 		public static final double BASE_DAMAGE = 12.0d;
 		public static final float SHOOT_POWER = 4.5f;
 		public static final float SHOOT_DURATION = 45.0f;
 		public static int USE_DURATION;
 		
 		
-		public ThrowSwordItem(
+		public ThrowableItem(
 				Properties properties, int useDuration) {
 				super(properties);
 				USE_DURATION = useDuration;

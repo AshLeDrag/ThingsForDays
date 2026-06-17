@@ -41,7 +41,7 @@ public class ModCreativeModeTabs {
                                                                                              .displayItems(((itemDisplayParameters, output) -> {
                                                                                                    output.accept(ModItems.Breadinium.Weapons.SWORD);
                                                                                                    output.accept(ModItems.Breadinium.Weapons.BOW);
-                                                                                                   output.accept(ModItems.Weapons.STEEL_THROWABLE);
+                                                                                                   output.accept(ModItems.Weapons.COLOSSAL_SWORD);
                                                                                              })).build());
       
       public static final Supplier<CreativeModeTab> ARMORFORDAYS = CREATIVE_MODE_TAB
@@ -95,6 +95,9 @@ public class ModCreativeModeTabs {
                                                                                                   
                                                                                                   
                                                                                                   output.accept(ModBlocks.BREADINIUM_BLOCK.get());
+                                                                                                  
+                                                                                                  
+                                                                                                  output.accept(ModBlocks.HOLDER.get());
                                                                                                   
                                                                                                   
                                                                                                   

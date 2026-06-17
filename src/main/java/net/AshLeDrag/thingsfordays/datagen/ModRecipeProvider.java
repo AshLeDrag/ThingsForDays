@@ -34,7 +34,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						.requires(ModItems.Breadinium.Tools.SHOVEL_HAMMER)
 						.unlockedBy("has_bismuth_block", has(ModItems.Breadinium.Resource.INGOT)).save(recipeOutput);
 				
-				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.STEEL_THROWABLE)
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.COLOSSAL_SWORD)
 						.pattern("SMS")
 						.pattern("SSS")
 						.pattern("LTL")
@@ -45,7 +45,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						.unlockedBy("has_pure_mana", has(ModItems.Mana.Resource.PURE_MANA))
 						.unlockedBy("has_stainless_steel_ingot", has(ModItems.Steel.Stainless.Resource.INGOT)).save(recipeOutput);
 				
-				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.TELEPORT_SWORD)
+				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.TELEPORT_SPEAR)
 						.pattern("SMS")
 						.pattern("SSS")
 						.pattern("LTL")
@@ -82,9 +82,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						.pattern(" C ")
 						.pattern("CSC")
 						.pattern(" C ")
-						.define('S', ModItems.Weapons.STEEL_THROWABLE)
+						.define('S', ModItems.Weapons.COLOSSAL_SWORD)
 						.define('C', Items.CHEST)
-						.unlockedBy("has_stainless_stee_ingot", has(ModItems.Weapons.STEEL_THROWABLE)).save(recipeOutput);
+						.unlockedBy("has_stainless_stee_ingot", has(ModItems.Weapons.COLOSSAL_SWORD)).save(recipeOutput);
 		}
 		
 		protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

@@ -155,7 +155,7 @@ public class SteelThrowableProjectileEntity extends AbstractArrow {
 		
 		@Override
 		protected ItemStack getDefaultPickupItem() {
-				return new ItemStack(ModItems.Weapons.STEEL_THROWABLE.get());
+				return new ItemStack(ModItems.Weapons.COLOSSAL_SWORD.get());
 		}
 		
 		@Override

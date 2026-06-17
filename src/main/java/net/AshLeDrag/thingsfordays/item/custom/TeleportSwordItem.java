@@ -1,6 +1,6 @@
 package net.AshLeDrag.thingsfordays.item.custom;
 
-import net.AshLeDrag.thingsfordays.entity.custom.TeleportSwordProjectileEntity;
+import net.AshLeDrag.thingsfordays.entity.custom.TeleportSpearProjectileEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Position;
@@ -26,7 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class TeleportSwordItem extends ThrowSwordItem {
+public class TeleportSwordItem extends ThrowableItem {
 		public static final double BASE_DAMAGE = 12.0d;
 		public static final float SHOOT_POWER = 4.5f;
 		public static final float SHOOT_DURATION = 45.0f;
@@ -60,14 +60,14 @@ public class TeleportSwordItem extends ThrowSwordItem {
 										if (!level.isClientSide) {
 												stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(entityLiving.getUsedItemHand()));
 												System.out.println(stack);
-												TeleportSwordProjectileEntity teleportSwordProjectileEntity = new TeleportSwordProjectileEntity(player, level, stack);
-												teleportSwordProjectileEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f, 1.0F);
+												TeleportSpearProjectileEntity teleportSpearProjectileEntity = new TeleportSpearProjectileEntity(player, level, stack);
+												teleportSpearProjectileEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f, 1.0F);
 												if (player.hasInfiniteMaterials()) {
-														teleportSwordProjectileEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+														teleportSpearProjectileEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 												}
 												
-												level.addFreshEntity(teleportSwordProjectileEntity);
-												level.playSound((Player)null, teleportSwordProjectileEntity, (SoundEvent)holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+												level.addFreshEntity(teleportSpearProjectileEntity);
+												level.playSound((Player)null, teleportSpearProjectileEntity, (SoundEvent)holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
 												if (!player.hasInfiniteMaterials()) {
 														player.getInventory().removeItem(stack);
 												}
@@ -112,9 +112,9 @@ public class TeleportSwordItem extends ThrowSwordItem {
 		}
 		
 		public @NotNull Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
-				TeleportSwordProjectileEntity teleportSwordProjectileEntity = new TeleportSwordProjectileEntity(level, pos.x(), pos.y(), pos.z(), stack.copyWithCount(1));
-				teleportSwordProjectileEntity.pickup = AbstractArrow.Pickup.ALLOWED;
-				return teleportSwordProjectileEntity;
+				TeleportSpearProjectileEntity teleportSpearProjectileEntity = new TeleportSpearProjectileEntity(level, pos.x(), pos.y(), pos.z(), stack.copyWithCount(1));
+				teleportSpearProjectileEntity.pickup = AbstractArrow.Pickup.ALLOWED;
+				return teleportSpearProjectileEntity;
 		}
 		
 }

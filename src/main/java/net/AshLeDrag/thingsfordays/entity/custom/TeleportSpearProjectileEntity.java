@@ -9,17 +9,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class TeleportSwordProjectileEntity extends SteelThrowableProjectileEntity {
+public class TeleportSpearProjectileEntity extends SteelThrowableProjectileEntity {
 		
-		public TeleportSwordProjectileEntity(EntityType<? extends SteelThrowableProjectileEntity> entityType, Level level) {
+		public TeleportSpearProjectileEntity(EntityType<? extends SteelThrowableProjectileEntity> entityType, Level level) {
 				super(entityType, level);
 		}
 		
-		public TeleportSwordProjectileEntity(LivingEntity thrower, Level level, ItemStack pickupItemStack) {
+		public TeleportSpearProjectileEntity(LivingEntity thrower, Level level, ItemStack pickupItemStack) {
 				super(ModEntities.TELEPORT_SWORD.get(), thrower, level, pickupItemStack);
 		}
 		
-		public TeleportSwordProjectileEntity(Level level, double x, double y, double z, ItemStack pickupItemStack) {
+		public TeleportSpearProjectileEntity(Level level, double x, double y, double z, ItemStack pickupItemStack) {
 				super(ModEntities.TELEPORT_SWORD.get(), level, x, y, z, pickupItemStack);
 		}
 		
@@ -39,7 +39,7 @@ public class TeleportSwordProjectileEntity extends SteelThrowableProjectileEntit
 		
 		@Override
 		protected ItemStack getDefaultPickupItem() {
-				return new ItemStack(ModItems.Weapons.TELEPORT_SWORD.get());
+				return new ItemStack(ModItems.Weapons.TELEPORT_SPEAR.get());
 		}
 		
 		// No loyalty — override tick to skip the return logic entirely

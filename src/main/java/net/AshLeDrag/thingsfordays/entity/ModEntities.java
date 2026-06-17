@@ -16,13 +16,14 @@ public class ModEntities {
 		
 		
 		
+		
 		public static final Supplier<EntityType<SteelThrowableProjectileEntity>> STEEL_THROWABLE =
 				ENTITY_TYPES.register("steel_throwable", () -> EntityType.Builder.<SteelThrowableProjectileEntity>of(SteelThrowableProjectileEntity::new, MobCategory.MISC)
 																			 .sized(0.5f, 0.5f).build("steel_throwable"));
 		
 		
-		public static final Supplier<EntityType<TeleportSwordProjectileEntity>> TELEPORT_SWORD =
-				ENTITY_TYPES.register("teleport_sword", () -> EntityType.Builder.<TeleportSwordProjectileEntity>of(TeleportSwordProjectileEntity::new, MobCategory.MISC)
+		public static final Supplier<EntityType<TeleportSpearProjectileEntity>> TELEPORT_SWORD =
+				ENTITY_TYPES.register("teleport_sword", () -> EntityType.Builder.<TeleportSpearProjectileEntity>of(TeleportSpearProjectileEntity::new, MobCategory.MISC)
 																			 .sized(0.5f, 0.5f).build("teleport_sword"));
 		
 		
@@ -31,8 +32,8 @@ public class ModEntities {
 																			 .sized(0.5f, 0.5f).build("hardened_sword"));
 		
 		
-		public static final Supplier<EntityType<TeleportHardenedSwordProjectileEntity>> TELEPORT_HARDENED_SWORD =
-				ENTITY_TYPES.register("hardened_teleport_sword", () -> EntityType.Builder.<TeleportHardenedSwordProjectileEntity>of(TeleportHardenedSwordProjectileEntity::new, MobCategory.MISC)
+		public static final Supplier<EntityType<TeleportHardenedSpearProjectileEntity>> TELEPORT_HARDENED_SWORD =
+				ENTITY_TYPES.register("hardened_teleport_sword", () -> EntityType.Builder.<TeleportHardenedSpearProjectileEntity>of(TeleportHardenedSpearProjectileEntity::new, MobCategory.MISC)
 																			 .sized(0.5f, 0.5f).build("hardened_teleport_sword"));
 		
 		

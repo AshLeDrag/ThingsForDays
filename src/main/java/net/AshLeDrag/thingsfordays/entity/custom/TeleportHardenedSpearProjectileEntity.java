@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
-public class TeleportHardenedSwordProjectileEntity extends HardenedSwordProjectileEntity {
+public class TeleportHardenedSpearProjectileEntity extends HardenedSwordProjectileEntity {
 		
 		// Saved target for post-explosion teleport: top of the block that was hit
 		private double teleportTargetX;
@@ -25,15 +25,15 @@ public class TeleportHardenedSwordProjectileEntity extends HardenedSwordProjecti
 		private int teleportDelayTicks = -1;
 		private static final int EXTRA_TELEPORT_DELAY = 2;
 		
-		public TeleportHardenedSwordProjectileEntity(EntityType<? extends SteelThrowableProjectileEntity> entityType, Level level) {
+		public TeleportHardenedSpearProjectileEntity(EntityType<? extends SteelThrowableProjectileEntity> entityType, Level level) {
 				super(entityType, level);
 		}
 		
-		public TeleportHardenedSwordProjectileEntity(LivingEntity thrower, Level level, ItemStack pickupItemStack) {
+		public TeleportHardenedSpearProjectileEntity(LivingEntity thrower, Level level, ItemStack pickupItemStack) {
 				super(thrower, level, pickupItemStack);
 		}
 		
-		public TeleportHardenedSwordProjectileEntity(Level level, double x, double y, double z, ItemStack pickupItemStack) {
+		public TeleportHardenedSpearProjectileEntity(Level level, double x, double y, double z, ItemStack pickupItemStack) {
 				super(level, x, y, z, pickupItemStack);
 		}
 		

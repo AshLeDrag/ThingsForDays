@@ -1,10 +1,7 @@
 package net.AshLeDrag.thingsfordays.block;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
-import net.AshLeDrag.thingsfordays.block.custom.BreadiniumBlock;
-import net.AshLeDrag.thingsfordays.block.custom.ManaBlock;
-import net.AshLeDrag.thingsfordays.block.custom.ModFlammableRotatedPillarBlock;
-import net.AshLeDrag.thingsfordays.block.custom.RadishCropBlock;
+import net.AshLeDrag.thingsfordays.block.custom.*;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.AshLeDrag.thingsfordays.sound.ModSounds;
 import net.AshLeDrag.thingsfordays.worldgen.tree.ModTreeGrowers;
@@ -48,9 +45,8 @@ public class ModBlocks {
       
       
       
-      
-      
-      
+      public static final DeferredBlock<Block> HOLDER = registerBlock("holder",
+            () -> new HolderBlock(BlockBehaviour.Properties.of().noOcclusion()));
       
       
       

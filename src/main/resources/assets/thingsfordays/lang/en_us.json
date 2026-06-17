@@ -6,7 +6,6 @@
 
 
 
-  "block.thingsfordays.mana_block": "Block of Pure Mana",
 
 
   "creativetab.thingsfordays.tfd_tab": "Tools For Days",
@@ -23,6 +22,7 @@
   "item.thingsfordays.breadinium_sword": "Breadinium Sword",
   "item.thingsfordays.breadinium_bow": "Breadinium Sword",
   "item.thingsfordays.steel_throwable": "Colossal Sword",
+  "item.thingsfordays.teleport_spear": "Colossal Sword",
 
 
 
@@ -49,6 +49,8 @@
 
 
   "creativetab.thingsfordays.bfd_tab": "Blocks For Days",
+  "block.thingsfordays.mana_block": "Block of Pure Mana",
+  "block.thingsfordays.holder": "Item Holder",
 
   "block.thingsfordays.redwood_log": "Redwood Log",
   "block.thingsfordays.redwood_planks": "Redwood Planks",
@@ -103,5 +105,6 @@
   
   
   
-  "creativetab.thingsfordays.tfda_tab": "Things For Days' Additions"
+  "creativetab.thingsfordays.tfda_tab": "Things For Days' Additions",
+  "Holder": "null"
 }

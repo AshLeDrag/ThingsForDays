@@ -2,15 +2,19 @@ package net.AshLeDrag.thingsfordays;
 
 import com.mojang.logging.LogUtils;
 import net.AshLeDrag.thingsfordays.block.ModBlocks;
+import net.AshLeDrag.thingsfordays.block.custom.entity.ModBlockEntities;
+import net.AshLeDrag.thingsfordays.block.custom.entity.renderer.HolderBlockEntityRenderer;
 import net.AshLeDrag.thingsfordays.component.ModDataComponents;
 import net.AshLeDrag.thingsfordays.effect.ModEffects;
 import net.AshLeDrag.thingsfordays.enchantment.ModEnchantmentEffects;
 import net.AshLeDrag.thingsfordays.entity.ModEntities;
 import net.AshLeDrag.thingsfordays.entity.client.SteelThrowableRendered;
-import net.AshLeDrag.thingsfordays.entity.client.TeleportSwordRendered;
+import net.AshLeDrag.thingsfordays.entity.client.TeleportSpearRendered;
 import net.AshLeDrag.thingsfordays.item.ModCreativeModeTabs;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.AshLeDrag.thingsfordays.potion.ModPotions;
+import net.AshLeDrag.thingsfordays.screen.ModMenuTypes;
+import net.AshLeDrag.thingsfordays.screen.custom.HolderScreen;
 import net.AshLeDrag.thingsfordays.sound.ModSounds;
 import net.AshLeDrag.thingsfordays.util.ModItemProperties;
 import net.AshLeDrag.thingsfordays.worldgen.ModTrunkPlacerTypes;
@@ -25,6 +29,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -61,6 +67,9 @@ public class ThingsForDays {
         ModTrunkPlacerTypes.TRUNK_PLACER_TYPES.register(modEventBus);
         
         ModEntities.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        
+        ModMenuTypes.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -93,11 +102,25 @@ public class ThingsForDays {
             ModItemProperties.addCustomItemProperties();
             
             EntityRenderers.register(ModEntities.STEEL_THROWABLE.get(), SteelThrowableRendered::new);
-            EntityRenderers.register(ModEntities.TELEPORT_SWORD.get(), TeleportSwordRendered::new);
-//            EntityRenderers.register(ModEntities.HARDENED_SWORD.get(), SteelThrowableRendered::new);
-//            EntityRenderers.register(ModEntities.TELEPORT_HARDENED_SWORD.get(), SteelThrowableRendered::new);
-//            EntityRenderers.register(ModEntities.GATHER_SWORD.get(), SteelThrowableRendered::new);
+            EntityRenderers.register(ModEntities.TELEPORT_SWORD.get(), TeleportSpearRendered::new);
+            EntityRenderers.register(ModEntities.HARDENED_SWORD.get(), SteelThrowableRendered::new);
+            EntityRenderers.register(ModEntities.TELEPORT_HARDENED_SWORD.get(), SteelThrowableRendered::new);
+            EntityRenderers.register(ModEntities.GATHER_SWORD.get(), SteelThrowableRendered::new);
         }
+        
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event){
+            event.registerBlockEntityRenderer(ModBlockEntities.HOLDER_BE.get(), HolderBlockEntityRenderer::new);
+        }
+        
+        
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event){
+            event.register(ModMenuTypes.HOLDER_MENU.get(), HolderScreen::new);
+        }
+        
+        
+        
     }
 }
 

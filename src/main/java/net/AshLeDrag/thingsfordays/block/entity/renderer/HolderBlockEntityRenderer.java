@@ -1,12 +1,11 @@
-package net.AshLeDrag.thingsfordays.block.custom.entity.renderer;
+package net.AshLeDrag.thingsfordays.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.AshLeDrag.thingsfordays.block.custom.entity.HolderBlockEntity;
+import net.AshLeDrag.thingsfordays.block.entity.HolderBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -16,9 +15,6 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 
 public class HolderBlockEntityRenderer  implements BlockEntityRenderer<HolderBlockEntity> {
 		public HolderBlockEntityRenderer(

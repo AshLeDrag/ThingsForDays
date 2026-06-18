@@ -1,4 +1,4 @@
-package net.AshLeDrag.thingsfordays.block.custom.entity;
+package net.AshLeDrag.thingsfordays.block.entity;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
 import net.AshLeDrag.thingsfordays.block.ModBlocks;
@@ -14,6 +14,9 @@ public class ModBlockEntities {
 		
 		public static final Supplier<BlockEntityType<HolderBlockEntity>> HOLDER_BE = BLOCK_ENTITIES.register("holder", () -> BlockEntityType.Builder.of(
 				HolderBlockEntity::new, ModBlocks.HOLDER.get()).build(null));
+		
+		public static final Supplier<BlockEntityType<WeaponForgeBlockEntity>> WEAPON_FORGE_BE = BLOCK_ENTITIES.register("weapon_forge", () -> BlockEntityType.Builder.of(
+				WeaponForgeBlockEntity::new, ModBlocks.WEAPON_FORGE.get()).build(null));
 		
 		
 		public static void register(IEventBus bus) {

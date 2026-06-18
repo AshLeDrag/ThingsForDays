@@ -42,7 +42,7 @@ displayName="ThingsForDays" #mandatory
 #credits="" #optional
 
 # The authors of the mod, displayed in the mod UI (optional)
-authors="AshLeDrag, isjwjwjw"
+authors="AshLeDrag"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''

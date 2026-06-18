@@ -50,6 +50,9 @@ public class ModBlocks {
       
       
       
+      public static final DeferredBlock<Block> WEAPON_FORGE = registerBlock("weapon_forge",
+            () -> new WeaponForgeBlock(BlockBehaviour.Properties.of()));
+      
       
       
       public static final DeferredBlock<Block> REDWOOD_LOG = registerBlock("redwood_log",

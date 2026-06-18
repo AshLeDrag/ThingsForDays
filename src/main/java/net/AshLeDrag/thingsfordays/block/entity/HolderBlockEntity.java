@@ -1,6 +1,5 @@
-package net.AshLeDrag.thingsfordays.block.custom.entity;
+package net.AshLeDrag.thingsfordays.block.entity;
 
-import net.AshLeDrag.thingsfordays.screen.custom.HolderMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -22,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class HolderBlockEntity extends BlockEntity implements MenuProvider {
+public class HolderBlockEntity extends BlockEntity{
 		
 		public final ItemStackHandler inventory = new ItemStackHandler(1){
 				@Override protected int getStackLimit(int slot, ItemStack stack) {
@@ -77,14 +76,6 @@ public class HolderBlockEntity extends BlockEntity implements MenuProvider {
 				inventory.deserializeNBT(registries, tag.getCompound("inventory"));
 		}
 		
-		@Override public Component getDisplayName() {
-				return Component.literal("Holder");
-		}
-		
-		@Nullable
-		@Override public AbstractContainerMenu createMenu(int i, @NotNull Inventory inventory, @NotNull Player player) {
-				return new HolderMenu(i, inventory, this);
-		}
 		
 		@Override
 		public Packet<ClientGamePacketListener> getUpdatePacket() {

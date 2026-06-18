@@ -168,6 +168,10 @@ public class ModItems {
 						
 						public static final DeferredItem<Item> HARDENED_BILLET = ITEMS.register("hardened_steel_billet", () -> new Item(new Item.Properties()));
 						public static final DeferredItem<Item> HARDENED_INGOT = ITEMS.register("hardened_steel_ingot", () -> new Item(new Item.Properties()));
+						
+						
+						public static final DeferredItem<Item> ARROW_HEAD = ITEMS.register("steel_arrow_head", () -> new Item(new Item.Properties().stacksTo(16)));
+						public static final DeferredItem<Item> SPEAR_HEAD = ITEMS.register("steel_spear_head", () -> new Item(new Item.Properties().stacksTo(16)));
 				}
 				
 				public static class Tools {}

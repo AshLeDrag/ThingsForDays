@@ -1,8 +1,7 @@
 package net.AshLeDrag.thingsfordays.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.AshLeDrag.thingsfordays.block.custom.entity.HolderBlockEntity;
+import net.AshLeDrag.thingsfordays.block.entity.HolderBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -66,10 +65,6 @@ public class HolderBlock extends BaseEntityBlock {
 		protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
 				Player player, InteractionHand hand, BlockHitResult hitResult) {
 				if(level.getBlockEntity(pos) instanceof HolderBlockEntity holderBlockEntity) {
-						if(player.isCrouching() && !level.isClientSide) {
-							((ServerPlayer) player).openMenu(new SimpleMenuProvider(holderBlockEntity, Component.literal("Holder")), pos);
-							return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
-						}
 						int baseCount = stack.getCount();
 						ItemStack slotStack = holderBlockEntity.inventory.getStackInSlot(0);
 						if(!stack.isEmpty() && (slotStack.isEmpty() || ItemStack.isSameItemSameComponents(slotStack, stack))) {

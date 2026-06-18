@@ -2,8 +2,8 @@ package net.AshLeDrag.thingsfordays;
 
 import com.mojang.logging.LogUtils;
 import net.AshLeDrag.thingsfordays.block.ModBlocks;
-import net.AshLeDrag.thingsfordays.block.custom.entity.ModBlockEntities;
-import net.AshLeDrag.thingsfordays.block.custom.entity.renderer.HolderBlockEntityRenderer;
+import net.AshLeDrag.thingsfordays.block.entity.ModBlockEntities;
+import net.AshLeDrag.thingsfordays.block.entity.renderer.HolderBlockEntityRenderer;
 import net.AshLeDrag.thingsfordays.component.ModDataComponents;
 import net.AshLeDrag.thingsfordays.effect.ModEffects;
 import net.AshLeDrag.thingsfordays.enchantment.ModEnchantmentEffects;
@@ -14,7 +14,7 @@ import net.AshLeDrag.thingsfordays.item.ModCreativeModeTabs;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.AshLeDrag.thingsfordays.potion.ModPotions;
 import net.AshLeDrag.thingsfordays.screen.ModMenuTypes;
-import net.AshLeDrag.thingsfordays.screen.custom.HolderScreen;
+import net.AshLeDrag.thingsfordays.screen.custom.WeaponForgeScreen;
 import net.AshLeDrag.thingsfordays.sound.ModSounds;
 import net.AshLeDrag.thingsfordays.util.ModItemProperties;
 import net.AshLeDrag.thingsfordays.worldgen.ModTrunkPlacerTypes;
@@ -116,7 +116,7 @@ public class ThingsForDays {
         
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event){
-            event.register(ModMenuTypes.HOLDER_MENU.get(), HolderScreen::new);
+            event.register(ModMenuTypes.WEAPON_FORGE_MENU.get(), WeaponForgeScreen::new);
         }
         
         

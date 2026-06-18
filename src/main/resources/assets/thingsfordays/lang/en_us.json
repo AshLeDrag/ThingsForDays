@@ -39,9 +39,9 @@
   "block.thingsfordays.breadinium_end_ore": "Breadinium End Ore",
   "block.thingsfordays.breadinium_nether_ore": "Breadinium Nether Ore",
 
-  "creativetab.thingsfordays.rfd_tab": "Resources For Days",
-  "item.thingsfordays.stainless_steel_billet": "Steel Billet",
-  "item.thingsfordays.stainless_steel_ingot": "Steel Ingot",
+  "creativetab.thingsfordays.rfd_tab": "Ingredients For Days",
+  "item.thingsfordays.stainless_steel_billet": "Stainless Steel Billet",
+  "item.thingsfordays.stainless_steel_ingot": "Stainless Steel Ingot",
   "item.thingsfordays.steel_billet": "Steel Billet",
   "item.thingsfordays.steel_ingot": "Steel Ingot",
   "item.thingsfordays.pure_mana": "§n§l§o§dPure Mana",
@@ -49,8 +49,16 @@
 
 
   "creativetab.thingsfordays.bfd_tab": "Blocks For Days",
+
   "block.thingsfordays.mana_block": "Block of Pure Mana",
+
   "block.thingsfordays.holder": "Item Holder",
+
+
+
+  "block.thingsfordays.weapon_forge": "Weapon's Forge",
+
+
 
   "block.thingsfordays.redwood_log": "Redwood Log",
   "block.thingsfordays.redwood_planks": "Redwood Planks",

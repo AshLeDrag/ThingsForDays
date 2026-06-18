@@ -30,6 +30,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.MANA_BLOCK.get());
+        dropSelf(ModBlocks.WEAPON_FORGE.get());
         
         
         add(ModBlocks.BREADINIUM_ORE.get(),
@@ -41,6 +42,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.BREADINIUM_NETHER_ORE.get(),
               block -> createMultipleOreDrops(ModBlocks.BREADINIUM_NETHER_ORE.get(), ModItems.Breadinium.Resource.RAW.get(), 4, 8));
         
+        dropSelf(ModBlocks.HOLDER.get());
         
         dropSelf(ModBlocks.BREADINIUM_BLOCK.get());
         

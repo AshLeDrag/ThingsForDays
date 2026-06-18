@@ -100,6 +100,9 @@ public class ModCreativeModeTabs {
                                                                                                   output.accept(ModBlocks.HOLDER.get());
                                                                                                   
                                                                                                   
+                                                                                                  output.accept(ModBlocks.WEAPON_FORGE.get());
+                                                                                                  
+                                                                                                  
                                                                                                   
                                                                                             })).build());
       
@@ -122,6 +125,11 @@ public class ModCreativeModeTabs {
                                                                                                      output.accept(ModItems.Chromium.Resource.RAW);
                                                                                                      output.accept(ModItems.Chromium.Resource.INGOT);
                                                                                                      output.accept(ModItems.Chromium.Resource.NUGGET);
+                                                                                                     
+                                                                                                     
+                                                                                                     
+                                                                                                     output.accept(ModItems.Steel.Resource.ARROW_HEAD);
+                                                                                                     output.accept(ModItems.Steel.Resource.SPEAR_HEAD);
                                                                                                })).build());
       
       public static final Supplier<CreativeModeTab> FOODFORDAYS = CREATIVE_MODE_TAB

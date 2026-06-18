@@ -44,6 +44,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 			
 			blockWithItem(ModBlocks.REDWOOD_PLANKS);
 			
+			blockWithItem(ModBlocks.WEAPON_FORGE);
+			
 			leavesBlock(ModBlocks.REDWOOD_LEAVES);
 			saplingBlock(ModBlocks.REDWOOD_SAPLING);
 			

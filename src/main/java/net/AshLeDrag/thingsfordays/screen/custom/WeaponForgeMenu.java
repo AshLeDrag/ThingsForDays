@@ -52,24 +52,28 @@ public class WeaponForgeMenu extends AbstractContainerMenu {
 				addPlayerInventory(inv);
 				addPlayerHotbar(inv);
 				
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, OUTPUT_SLOT, 159, 33));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_1_MIDDLE , 43, 34));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_2_N, 43, 15));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_3_FAR_N, 43, -8));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_4_S, 43, 54));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_5_FAR_S, 43, 76));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_6_E, 62, 34));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_7_FAR_E, 85, 34));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_8_W, 24, 34));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_9_FAR_W, 1, 34));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_10_NE, 73, 4));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_11_FAR_NE, 94, -17));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_12_SE, 73, 64));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_13_FAR_SE, 94, 85));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_14_SW, 13, 64));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_15_FAR_SW, -8, 85));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_16_NW, -8, -17));
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_17_FAR_NW, 13, 4));
+				int xOffset = -25;
+				int yOffset = -34;
+				
+				
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, OUTPUT_SLOT, 192 + xOffset, 59 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_1_MIDDLE , 76 + xOffset, 60 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_2_N, 76 + xOffset, 41 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_3_FAR_N, 76 + xOffset, 18 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_4_S, 76 + xOffset, 79 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_5_FAR_S, 76 + xOffset, 102 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_6_E, 95 + xOffset, 60 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_7_FAR_E, 118 + xOffset, 60 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_8_W, 57 + xOffset, 60 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_9_FAR_W, 34 + xOffset, 60 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_10_NE, 106 + xOffset, 30 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_11_FAR_NE, 127 + xOffset, 9 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_12_SE, 106 + xOffset, 90 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_13_FAR_SE, 127 + xOffset, 111 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_14_SW, 46 + xOffset, 90 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_15_FAR_SW, 25 + xOffset, 111 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_16_NW, 46 + xOffset, 30 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_17_FAR_NW, 25 + xOffset, 9 + yOffset));
 				
 				addDataSlots(data);
 		}
@@ -149,20 +153,21 @@ public class WeaponForgeMenu extends AbstractContainerMenu {
 		
 		
 		
-		
+		int invYOffset = 29;
+		int invXOffset = 0;
 		
 		
 		private void addPlayerInventory(Inventory playerInventory) {
 				for (int i = 0; i < 3; ++i) {
 						for (int l = 0; l < 9; ++l) {
-								this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 113 + i * 18));
+								this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + + invXOffset + l * 18, invYOffset + 84 + i * 18));
 						}
 				}
 		}
 		
 		private void addPlayerHotbar(Inventory playerInventory) {
 				for (int i = 0; i < 9; ++i) {
-						this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 171));
+						this.addSlot(new Slot(playerInventory, i, 8 + invXOffset + i * 18, 142 + invYOffset));
 				}
 		}
 }

@@ -18,24 +18,27 @@ public class WeaponForgeScreen extends AbstractContainerScreen<WeaponForgeMenu> 
 		public WeaponForgeScreen(WeaponForgeMenu menu, Inventory playerInventory, Component title) {
 				super(menu, playerInventory, title);
 		}
-		
+		@Override
+		public void init() {
+				this.imageWidth = 243;
+				this.imageHeight = 221;
+				super.init();
+				this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2 - 35;
+				this.titleLabelY = 6;
+				this.inventoryLabelY = this.imageHeight - 96;
+				this.inventoryLabelX = 60;
+		}
 		@Override
 		protected void renderBg(GuiGraphics guiGraphics, float v, int i, int i1) {
-				RenderSystem.setShader(GameRenderer::getPositionTexShader);
-				RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-				RenderSystem.setShaderTexture(0, GUI_TEXTURE);
-				
-				int x = (width - 243) / 2;
-				int y = (height - 221) / 2;
-				System.out.println(x + " " + y);
-				guiGraphics.blit(GUI_TEXTURE, x, y, 0, 0, 243, 221);
-				
+				int x = (width - this.imageWidth) / 2;
+				int y = (height - this.imageHeight) / 2;
+				guiGraphics.blit(GUI_TEXTURE, x, y, 0, 0, this.imageWidth, this.imageHeight);
 				renderProgressArrow(guiGraphics, x, y);
 		}
 		
 		private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
-				if(menu.isCrafting()) {
-						guiGraphics.blit(ARROW_TEXTURE,x + 73, y + 35, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
+				if (menu.isCrafting()) {
+						guiGraphics.blit(ARROW_TEXTURE, x + 149, y + 60, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
 				}
 		}
 		

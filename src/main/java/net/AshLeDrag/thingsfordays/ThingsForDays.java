@@ -13,6 +13,7 @@ import net.AshLeDrag.thingsfordays.entity.client.TeleportSpearRendered;
 import net.AshLeDrag.thingsfordays.item.ModCreativeModeTabs;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.AshLeDrag.thingsfordays.potion.ModPotions;
+import net.AshLeDrag.thingsfordays.recipe.ModRecipes;
 import net.AshLeDrag.thingsfordays.screen.ModMenuTypes;
 import net.AshLeDrag.thingsfordays.screen.custom.WeaponForgeScreen;
 import net.AshLeDrag.thingsfordays.sound.ModSounds;
@@ -70,7 +71,9 @@ public class ThingsForDays {
         ModBlockEntities.register(modEventBus);
         
         ModMenuTypes.register(modEventBus);
-
+        ModRecipes.register(modEventBus);
+        
+        
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

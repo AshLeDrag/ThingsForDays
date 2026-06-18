@@ -1,0 +1,61 @@
+{
+  "type": "thingsfordays:weapon_forge",
+  "forgingtime": 600,
+  "ingredients": {
+    "center": {
+      "item": "minecraft:diamond"
+    },
+    "east": {
+      "item": "minecraft:iron_ingot"
+    },
+    "far_east": {
+      "item": "minecraft:gold_ingot"
+    },
+    "far_north": {
+      "item": "minecraft:gold_ingot"
+    },
+    "far_north_east": {
+      "item": "minecraft:flint"
+    },
+    "far_north_west": {
+      "item": "minecraft:flint"
+    },
+    "far_south": {
+      "item": "minecraft:gold_ingot"
+    },
+    "far_south_east": {
+      "item": "minecraft:flint"
+    },
+    "far_south_west": {
+      "item": "minecraft:flint"
+    },
+    "far_west": {
+      "item": "minecraft:gold_ingot"
+    },
+    "north": {
+      "item": "minecraft:iron_ingot"
+    },
+    "north_east": {
+      "item": "minecraft:stick"
+    },
+    "north_west": {
+      "item": "minecraft:stick"
+    },
+    "south": {
+      "item": "minecraft:iron_ingot"
+    },
+    "south_east": {
+      "item": "minecraft:stick"
+    },
+    "south_west": {
+      "item": "minecraft:stick"
+    },
+    "west": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_ingot"
+  }
+}

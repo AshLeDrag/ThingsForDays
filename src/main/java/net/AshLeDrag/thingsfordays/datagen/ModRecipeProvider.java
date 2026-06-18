@@ -2,6 +2,7 @@ package net.AshLeDrag.thingsfordays.datagen;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
 import net.AshLeDrag.thingsfordays.item.ModItems;
+import net.AshLeDrag.thingsfordays.recipe.WeaponForgeRecipeBuilder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -20,6 +21,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		
 		@Override
 		protected void buildRecipes(RecipeOutput recipeOutput) {
+				
+				modRecipes(recipeOutput);
 				
 				ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.Breadinium.Tools.HAMMER.get())
 						.requires(ModItems.Breadinium.Tools.AXE_HAMMER)
@@ -85,7 +88,78 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						.define('S', ModItems.Weapons.COLOSSAL_SWORD)
 						.define('C', Items.CHEST)
 						.unlockedBy("has_stainless_stee_ingot", has(ModItems.Weapons.COLOSSAL_SWORD)).save(recipeOutput);
+				
+				
+				
+				
+				
 		}
+		
+		
+		
+		
+		
+		protected static void modRecipes(RecipeOutput recipeOutput) {
+				// In ModRecipeProvider.buildRecipes(), add these three:
+				
+				// 1. All 17 slots filled
+				WeaponForgeRecipeBuilder.create(RecipeCategory.MISC)
+						.forgingTime(600)
+						.center      (Items.DIAMOND)
+						.north       (Items.IRON_INGOT)
+						.farNorth    (Items.GOLD_INGOT)
+						.south       (Items.IRON_INGOT)
+						.farSouth    (Items.GOLD_INGOT)
+						.east        (Items.IRON_INGOT)
+						.farEast     (Items.GOLD_INGOT)
+						.west        (Items.IRON_INGOT)
+						.farWest     (Items.GOLD_INGOT)
+						.northEast   (Items.STICK)
+						.farNorthEast(Items.FLINT)
+						.southEast   (Items.STICK)
+						.farSouthEast(Items.FLINT)
+						.southWest   (Items.STICK)
+						.farSouthWest(Items.FLINT)
+						.northWest   (Items.STICK)
+						.farNorthWest(Items.FLINT)
+						.result      (Items.NETHERITE_INGOT)
+						.unlockedBy  ("has_diamond", has(Items.DIAMOND))
+						.save(recipeOutput, ThingsForDays.MOD_ID + ":weapon_forge_full_example");
+				
+				// 2. Cross pattern — center + 4 cardinal slots only
+				WeaponForgeRecipeBuilder.create(RecipeCategory.COMBAT)
+						.forgingTime(300)
+						.center (Items.BLAZE_ROD)
+						.north  (Items.IRON_INGOT)
+						.south  (Items.IRON_INGOT)
+						.east   (Items.IRON_INGOT)
+						.west   (Items.IRON_INGOT)
+						.result (Items.BLAZE_POWDER, 4)
+						.unlockedBy("has_blaze_rod", has(Items.BLAZE_ROD))
+						.save(recipeOutput, ThingsForDays.MOD_ID + ":weapon_forge_cross_example");
+				
+				// 3. Diagonal pattern — center + 4 diagonal far slots only
+				WeaponForgeRecipeBuilder.create(RecipeCategory.MISC)
+						.forgingTime(400)
+						.center      (Items.OBSIDIAN)
+						.farNorthEast(Items.CRYING_OBSIDIAN)
+						.farSouthEast(Items.CRYING_OBSIDIAN)
+						.farSouthWest(Items.CRYING_OBSIDIAN)
+						.farNorthWest(Items.CRYING_OBSIDIAN)
+						.result      (Items.ANCIENT_DEBRIS)
+						.unlockedBy  ("has_crying_obsidian", has(Items.CRYING_OBSIDIAN))
+						.save(recipeOutput, ThingsForDays.MOD_ID + ":weapon_forge_diagonal_example");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
 				float pExperience, int pCookingTIme, String pGroup) {

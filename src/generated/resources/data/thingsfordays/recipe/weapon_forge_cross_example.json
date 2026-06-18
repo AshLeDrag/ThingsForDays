@@ -1,0 +1,25 @@
+{
+  "type": "thingsfordays:weapon_forge",
+  "forgingtime": 300,
+  "ingredients": {
+    "center": {
+      "item": "minecraft:blaze_rod"
+    },
+    "east": {
+      "item": "minecraft:iron_ingot"
+    },
+    "north": {
+      "item": "minecraft:iron_ingot"
+    },
+    "south": {
+      "item": "minecraft:iron_ingot"
+    },
+    "west": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "count": 4,
+    "id": "minecraft:blaze_powder"
+  }
+}

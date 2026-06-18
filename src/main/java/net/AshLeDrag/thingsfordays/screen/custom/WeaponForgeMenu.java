@@ -52,11 +52,11 @@ public class WeaponForgeMenu extends AbstractContainerMenu {
 				addPlayerInventory(inv);
 				addPlayerHotbar(inv);
 				
-				int xOffset = -25;
-				int yOffset = -34;
+				int xOffset = 1;
+				int yOffset = 1;
 				
 				
-				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, OUTPUT_SLOT, 192 + xOffset, 59 + yOffset));
+				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, OUTPUT_SLOT, 192 + xOffset, 59 + yOffset) {@Override public boolean mayPlace(ItemStack stack) {return false;}});
 				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_1_MIDDLE , 76 + xOffset, 60 + yOffset));
 				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_2_N, 76 + xOffset, 41 + yOffset));
 				this.addSlot(new SlotItemHandler(blockEntity.itemHandler, INPUT_3_FAR_N, 76 + xOffset, 18 + yOffset));
@@ -153,8 +153,8 @@ public class WeaponForgeMenu extends AbstractContainerMenu {
 		
 		
 		
-		int invYOffset = 29;
-		int invXOffset = 0;
+		int invYOffset = 56;
+		int invXOffset = 34;
 		
 		
 		private void addPlayerInventory(Inventory playerInventory) {

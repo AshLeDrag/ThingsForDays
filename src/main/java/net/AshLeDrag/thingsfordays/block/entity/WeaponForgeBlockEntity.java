@@ -1,6 +1,9 @@
 package net.AshLeDrag.thingsfordays.block.entity;
 
 import net.AshLeDrag.thingsfordays.item.ModItems;
+import net.AshLeDrag.thingsfordays.recipe.ModRecipes;
+import net.AshLeDrag.thingsfordays.recipe.WeaponForgeRecipe;
+import net.AshLeDrag.thingsfordays.recipe.WeaponForgeRecipeInput;
 import net.AshLeDrag.thingsfordays.screen.custom.WeaponForgeMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -17,11 +20,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class WeaponForgeBlockEntity extends BlockEntity implements MenuProvider {
 		
@@ -37,23 +45,6 @@ public class WeaponForgeBlockEntity extends BlockEntity implements MenuProvider 
 		};
 		
 		private static final int OUTPUT_SLOT = 0;
-		private static final int INPUT_1_MIDDLE = 1;
-		private static final int INPUT_2_N = 2;
-		private static final int INPUT_3_FAR_N = 3;
-		private static final int INPUT_4_S = 4;
-		private static final int INPUT_5_FAR_S = 5;
-		private static final int INPUT_6_E = 6;
-		private static final int INPUT_7_FAR_E = 7;
-		private static final int INPUT_8_W = 8;
-		private static final int INPUT_9_FAR_W = 9;
-		private static final int INPUT_10_NE = 10;
-		private static final int INPUT_11_FAR_NE = 11;
-		private static final int INPUT_12_SE = 12;
-		private static final int INPUT_13_FAR_SE = 13;
-		private static final int INPUT_14_SW = 14;
-		private static final int INPUT_15_FAR_SW = 15;
-		private static final int INPUT_16_NW = 16;
-		private static final int INPUT_17_FAR_NW = 17;
 		
 		
 		protected final ContainerData data;
@@ -127,11 +118,14 @@ public class WeaponForgeBlockEntity extends BlockEntity implements MenuProvider 
 		}
 		
 		public void tick(Level level, BlockPos blockPos, BlockState blockState) {
-				if(hasRecipe()) {
+				if (hasRecipe()) {
+						// Sync maxProgress from the recipe on the first tick (progress == 0)
+						if (progress == 0) {
+								getCurrentRecipe().ifPresent(r -> maxProgress = r.value().forgingTime());
+						}
 						increaseCraftingProgress();
 						setChanged(level, blockPos, blockState);
-						
-						if(hasCraftingFinished()) {
+						if (hasCraftingFinished()) {
 								craftItem();
 								resetProgress();
 						}
@@ -143,9 +137,17 @@ public class WeaponForgeBlockEntity extends BlockEntity implements MenuProvider 
 		private void resetProgress() {progress=0;maxProgress=600;}
 		
 		private void craftItem() {
-				ItemStack output = new ItemStack(ModItems.Steel.Resource.SPEAR_HEAD.get(), 2);
-				itemHandler.extractItem(INPUT_1_MIDDLE, 1, false);
-				itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(), itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
+				Optional<RecipeHolder<WeaponForgeRecipe>> recipe = getCurrentRecipe();
+				ItemStack output = recipe.get().value().output();
+				
+				for (int i = 1; i <= WeaponForgeRecipe.SLOT_NAMES.size(); i++) {  // start at 1
+						itemHandler.extractItem(i, 1, false);
+				}
+				
+				itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(
+						output.getItem(),
+						itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()
+				));
 		}
 		
 		private boolean hasCraftingFinished() {return this.progress >= this.maxProgress;}
@@ -153,9 +155,21 @@ public class WeaponForgeBlockEntity extends BlockEntity implements MenuProvider 
 		private void increaseCraftingProgress() {progress++;}
 		
 		private boolean hasRecipe() {
-				ItemStack output = new ItemStack(ModItems.Steel.Resource.SPEAR_HEAD.get());
-				return (itemHandler.getStackInSlot(INPUT_1_MIDDLE).is(ModItems.Steel.Resource.INGOT) ||itemHandler.getStackInSlot(INPUT_1_MIDDLE).isEmpty()) &&
-						canInsertAmoutIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+				Optional<RecipeHolder<WeaponForgeRecipe>> recipe = getCurrentRecipe();
+				if(recipe.isEmpty()) {return false;}
+				
+				ItemStack output = recipe.get().value().output();
+				return canInsertAmoutIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+		}
+		
+		private Optional<RecipeHolder<WeaponForgeRecipe>> getCurrentRecipe() {
+				List<ItemStack> inputs = new ArrayList<>();
+				for (int i = 1; i <= WeaponForgeRecipe.SLOT_NAMES.size(); i++) {  // start at 1, skip output slot
+						inputs.add(itemHandler.getStackInSlot(i));
+				}
+				return level.getRecipeManager()
+								 .getRecipeFor(ModRecipes.WEAPON_FORGE_TYPE.get(),
+										 new WeaponForgeRecipeInput(inputs), level);
 		}
 		
 		private boolean canInsertItemIntoOutputSlot(ItemStack output) {

@@ -1,0 +1,25 @@
+{
+  "type": "thingsfordays:weapon_forge",
+  "forgingtime": 400,
+  "ingredients": {
+    "center": {
+      "item": "minecraft:obsidian"
+    },
+    "far_north_east": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "far_north_west": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "far_south_east": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "far_south_west": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:ancient_debris"
+  }
+}

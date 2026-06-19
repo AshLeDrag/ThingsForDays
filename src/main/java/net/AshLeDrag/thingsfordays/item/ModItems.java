@@ -22,7 +22,7 @@ public class ModItems {
 		public static class Weapons {
 				public static final DeferredItem<Item> COLOSSAL_SWORD = ITEMS.register("steel_throwable", () -> new ThrowableItem(new Item.Properties().stacksTo(1)
 						                                                                                                                    .durability(700), 72000));
-				public static final DeferredItem<Item> TELEPORT_SPEAR = ITEMS.register("teleport_sword", () -> new TeleportSwordItem(new Item.Properties().stacksTo(1)
+				public static final DeferredItem<Item> TELEPORT_SPEAR = ITEMS.register("teleport_spear", () -> new TeleportSwordItem(new Item.Properties().stacksTo(1)
 																																												.durability(700), 72000));
 				public static final DeferredItem<Item> HARDENED_SWORD = ITEMS.register("hardened_sword", () -> new ThrowableItem(new Item.Properties().stacksTo(1)
 						                                                                                                                   .durability(700), 72000));

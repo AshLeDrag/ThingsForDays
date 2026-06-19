@@ -2,7 +2,9 @@ package net.AshLeDrag.thingsfordays.entity.custom;
 
 import net.AshLeDrag.thingsfordays.entity.ModEntities;
 import net.AshLeDrag.thingsfordays.item.ModItems;
+import net.AshLeDrag.thingsfordays.particle.ModParticles;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.SectionPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -59,6 +61,11 @@ public class HardenedSwordProjectileEntity extends SteelThrowableProjectileEntit
 		
 		@Override
 		public void tick() {
+				
+				if ((this.level() instanceof ServerLevel serverLevel)) {
+						serverLevel.sendParticles(ModParticles.MY_3D_PARTICLE.get(),
+								this.getX(), this.getY(), this.getZ(), 50, 0.3, 0.3, 0.3, 0.05);
+				}
 				if (explodeDelayTicks > 0) {
 						explodeDelayTicks--;
 						doPreExplosionEffects();

@@ -15,7 +15,12 @@ public class ModEntities {
 				DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, ThingsForDays.MOD_ID);
 		
 		
-		
+		public static final Supplier<EntityType<TeleportParticleEntity>> SPINNING_CUBE =
+				ENTITY_TYPES.register("spinning_cube", () ->
+																			EntityType.Builder.<TeleportParticleEntity>of(TeleportParticleEntity::new, MobCategory.MISC)
+																					.sized(0.5f, 0.5f)
+																					.clientTrackingRange(8)
+																					.build("spinning_cube"));
 		
 		public static final Supplier<EntityType<SteelThrowableProjectileEntity>> STEEL_THROWABLE =
 				ENTITY_TYPES.register("steel_throwable", () -> EntityType.Builder.<SteelThrowableProjectileEntity>of(SteelThrowableProjectileEntity::new, MobCategory.MISC)
@@ -23,8 +28,8 @@ public class ModEntities {
 		
 		
 		public static final Supplier<EntityType<TeleportSpearProjectileEntity>> TELEPORT_SWORD =
-				ENTITY_TYPES.register("teleport_sword", () -> EntityType.Builder.<TeleportSpearProjectileEntity>of(TeleportSpearProjectileEntity::new, MobCategory.MISC)
-																			 .sized(0.5f, 0.5f).build("teleport_sword"));
+				ENTITY_TYPES.register("teleport_spear", () -> EntityType.Builder.<TeleportSpearProjectileEntity>of(TeleportSpearProjectileEntity::new, MobCategory.MISC)
+																			 .sized(0.5f, 0.5f).build("teleport_spear"));
 		
 		
 		public static final Supplier<EntityType<HardenedSwordProjectileEntity>> HARDENED_SWORD =

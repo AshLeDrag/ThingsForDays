@@ -18,11 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public record WeaponForgeRecipe(
-		Map<String, Ingredient> slotMap,
-		ItemStack output,
-		int forgingTime
-) implements Recipe<WeaponForgeRecipeInput> {
+public record WeaponForgeRecipe(Map<String, Ingredient> slotMap, ItemStack output, int forgingTime) implements Recipe<WeaponForgeRecipeInput> {
 		
 		public static final List<String> SLOT_NAMES = List.of(
 				"center",

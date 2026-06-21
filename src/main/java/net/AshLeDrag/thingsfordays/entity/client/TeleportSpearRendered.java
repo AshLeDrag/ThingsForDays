@@ -81,8 +81,8 @@ public class TeleportSpearRendered extends EntityRenderer<TeleportSpearProjectil
 				Tesselator tesselator = Tesselator.getInstance();
 				BufferBuilder buffer = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 				
-				renderCube(buffer, matrix, 0.20f, 219f/255f, 63f/255f, 253f/255f, 1f, true);
-				renderCube(buffer, matrix, 0.15f, 240f/255f, 167f/255f, 1f,       1f, false);
+				renderCube(buffer, matrix, 0.17f, 78f/255f, 14f/255f, 180f/255f, 1f, true);
+				renderCube(buffer, matrix, 0.12f, 232f/255f, 142f/255f, 1f,       1f, false);
 				
 				BufferUploader.drawWithShader(buffer.buildOrThrow());
 				

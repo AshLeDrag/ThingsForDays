@@ -30,6 +30,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -59,7 +60,7 @@ public class ThrowableItem extends TridentItem {
 				return !player.isCreative();
 		}
 		
-		public UseAnim getUseAnimation(ItemStack stack) {
+		public @NotNull UseAnim getUseAnimation(ItemStack stack) {
 				return UseAnim.SPEAR;
 		}
 		

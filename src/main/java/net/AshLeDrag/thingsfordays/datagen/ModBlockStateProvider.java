@@ -32,6 +32,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 			blockWithItem(ModBlocks.BREADINIUM_NETHER_ORE);
 			blockWithItem(ModBlocks.BREADINIUM_END_ORE);
 			
+			blockWithItem(ModBlocks.MYTHRIL_DEEPSLATE_ORE);
+			blockWithItem(ModBlocks.MYTHRIL_ORE);
+			blockWithItem(ModBlocks.MYTHRIL_NETHER_ORE);
+			blockWithItem(ModBlocks.MYTHRIL_END_ORE);
+			blockWithItem(ModBlocks.MYTHRIL_BLOCK);
+			
 			logBlock(((RotatedPillarBlock) ModBlocks.REDWOOD_LOG.get()));
 			axisBlock(((RotatedPillarBlock) ModBlocks.REDWOOD_WOOD.get()), blockTexture(ModBlocks.REDWOOD_LOG.get()), blockTexture(ModBlocks.REDWOOD_LOG.get()));
 			logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_REDWOOD_LOG.get()));

@@ -2,11 +2,11 @@ package net.AshLeDrag.thingsfordays.event;
 
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
-import net.AshLeDrag.thingsfordays.item.custom.HammerItem;
 import net.AshLeDrag.thingsfordays.potion.ModPotions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -30,7 +30,7 @@ public class ModEvents {
 				Player player = event.getPlayer();
 				ItemStack mainHandItem = player.getMainHandItem();
 				
-				if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
+				if(mainHandItem.getItem() instanceof DiggerItem hammer && player instanceof ServerPlayer serverPlayer) {
 						BlockPos initialBlockPos = event.getPos();
 						if(HARVESTED_BLOCKS.contains(initialBlockPos)) {
 								return;

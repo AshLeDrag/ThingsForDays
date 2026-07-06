@@ -28,9 +28,9 @@ public class ModBiomeModifiers {
 		
 		
 		
-		
-		
-		
+		public static final ResourceKey<BiomeModifier> ADD_MYTHRIL_ORE        = registerKey("add_mythril_ore");
+		public static final ResourceKey<BiomeModifier> ADD_NETHER_MYTHRIL_ORE = registerKey("add_nether_mythril_ore");
+		public static final ResourceKey<BiomeModifier> ADD_END_MYTHRIL_ORE    = registerKey("add_end_mythril_ore");
 		
 		//     ============ ====   == == === == ==   == ==== ============
 		// ============ ==== ==== == == TREES == == ==== ==== ==== ==========
@@ -84,6 +84,21 @@ public class ModBiomeModifiers {
 				
 				
 				
+				
+				/* ======================= Mythril ======================= */
+				
+				context.register(ADD_MYTHRIL_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+						biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+						HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.MYTHRIL_ORE_PLACED_KEY)),
+						GenerationStep.Decoration.UNDERGROUND_ORES));
+				context.register(ADD_NETHER_MYTHRIL_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+						biomes.getOrThrow(BiomeTags.IS_NETHER),
+						HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.NETHER_MYTHRIL_ORE_PLACED_KEY)),
+						GenerationStep.Decoration.UNDERGROUND_ORES));
+				context.register(ADD_END_MYTHRIL_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+						biomes.getOrThrow(BiomeTags.IS_END),
+						HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.END_MYTHRIL_ORE_PLACED_KEY)),
+						GenerationStep.Decoration.UNDERGROUND_ORES));
 				
 				
 				//     ============ ====   == == === == ==   == ==== ============

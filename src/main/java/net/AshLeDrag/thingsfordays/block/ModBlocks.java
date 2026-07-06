@@ -43,7 +43,16 @@ public class ModBlocks {
       public static final DeferredBlock<Block> BREADINIUM_BLOCK = registerBlock("breadinium_block",
             () -> new BreadiniumBlock(BlockBehaviour.Properties.of().noOcclusion()));
       
-      
+      public static final DeferredBlock<Block> MYTHRIL_ORE = registerBlock("mythril_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+      public static final DeferredBlock<Block> MYTHRIL_DEEPSLATE_ORE = registerBlock("mythril_deepslate_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+      public static final DeferredBlock<Block> MYTHRIL_NETHER_ORE = registerBlock("mythril_nether_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERRACK)));
+      public static final DeferredBlock<Block> MYTHRIL_END_ORE = registerBlock("mythril_end_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE)));
+      public static final DeferredBlock<Block> MYTHRIL_BLOCK = registerBlock("mythril_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
       
       public static final DeferredBlock<Block> HOLDER = registerBlock("holder",
             () -> new HolderBlock(BlockBehaviour.Properties.of().noOcclusion()));

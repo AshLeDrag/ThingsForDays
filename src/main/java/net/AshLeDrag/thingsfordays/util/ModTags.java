@@ -25,6 +25,9 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_STAINLESS_STEEL_TOOL = createTag("needs_stainless_steel_tool");
         public static final TagKey<Block> INCORRECT_FOR_STAINLESS_STEEL_TOOL = createTag("incorrect_for_stainless_steel_tool");
         
+            public static final TagKey<Block> NEEDS_MYTHRIL_TOOL = createTag("needs_mythril_tool");
+        public static final TagKey<Block> INCORRECT_FOR_MYTHRIL_TOOL = createTag("incorrect_for_mythril_tool");
+        
         
         public static final TagKey<Block> BASIC_HAMMER_MINEABLE = createTag("hammer_mineable");
         public static final TagKey<Block> PICKAXE_HAMMER_MINEABLE = createTag("pickaxe_hammer_mineable");

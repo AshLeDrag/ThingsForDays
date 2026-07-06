@@ -41,10 +41,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
               block -> createMultipleOreDrops(ModBlocks.BREADINIUM_END_ORE.get(), ModItems.Breadinium.Resource.RAW.get(), 3, 6));
         add(ModBlocks.BREADINIUM_NETHER_ORE.get(),
               block -> createMultipleOreDrops(ModBlocks.BREADINIUM_NETHER_ORE.get(), ModItems.Breadinium.Resource.RAW.get(), 4, 8));
+        dropSelf(ModBlocks.BREADINIUM_BLOCK.get());
+        
+        add(ModBlocks.MYTHRIL_ORE.get(),
+              block -> createOreDrop(ModBlocks.MYTHRIL_ORE.get(), ModItems.Mythril.Resource.RAW.get()));
+        add(ModBlocks.MYTHRIL_DEEPSLATE_ORE.get(),
+              block -> createMultipleOreDrops(ModBlocks.MYTHRIL_DEEPSLATE_ORE.get(), ModItems.Mythril.Resource.RAW.get(), 2, 5));
+        add(ModBlocks.MYTHRIL_END_ORE.get(),
+              block -> createMultipleOreDrops(ModBlocks.MYTHRIL_END_ORE.get(), ModItems.Mythril.Resource.RAW.get(), 3, 6));
+        add(ModBlocks.MYTHRIL_NETHER_ORE.get(),
+              block -> createMultipleOreDrops(ModBlocks.MYTHRIL_NETHER_ORE.get(), ModItems.Mythril.Resource.RAW.get(), 4, 8));
+        dropSelf(ModBlocks.MYTHRIL_BLOCK.get());
+        
+        
         
         dropSelf(ModBlocks.HOLDER.get());
         
-        dropSelf(ModBlocks.BREADINIUM_BLOCK.get());
+        
         
         dropSelf(ModBlocks.REDWOOD_LOG.get());
         dropSelf(ModBlocks.REDWOOD_WOOD.get());

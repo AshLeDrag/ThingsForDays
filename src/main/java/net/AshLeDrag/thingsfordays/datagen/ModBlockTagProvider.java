@@ -54,6 +54,17 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 			tag(ModTags.Blocks.INCORRECT_FOR_BREADINIUM_TOOL)
 					.addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
 					.remove(ModTags.Blocks.NEEDS_BREADINIUM_TOOL);
+			
+			tag(ModTags.Blocks.NEEDS_MYTHRIL_TOOL)
+					.addTag(BlockTags.NEEDS_IRON_TOOL)
+					.add(Blocks.OBSIDIAN)
+					.add(Blocks.CRYING_OBSIDIAN);
+			
+			tag(ModTags.Blocks.INCORRECT_FOR_MYTHRIL_TOOL)
+					.addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+					.remove(ModTags.Blocks.NEEDS_MYTHRIL_TOOL);
+			
+			
 				
 			this.tag(BlockTags.LOGS_THAT_BURN)
 				 .add(ModBlocks.REDWOOD_LOG.get())

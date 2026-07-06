@@ -30,10 +30,9 @@ public class ModPlacedFeatures {
 		public static final ResourceKey<PlacedFeature> END_BREADINIUM_ORE_PLACED_KEY = registerKey("end_breadinium_ore_placed");
 		
 		
-		
-		
-		
-		
+		public static final ResourceKey<PlacedFeature> MYTHRIL_ORE_PLACED_KEY        = registerKey("mythril_ore_placed");
+		public static final ResourceKey<PlacedFeature> NETHER_MYTHRIL_ORE_PLACED_KEY = registerKey("nether_mythril_ore_placed");
+		public static final ResourceKey<PlacedFeature> END_MYTHRIL_ORE_PLACED_KEY    = registerKey("end_mythril_ore_placed");
 		
 		//     ============ ====   == == === == ==   == ==== ============
 		// ============ ==== ==== == == TREES == == ==== ==== ==== ==========
@@ -65,6 +64,16 @@ public class ModPlacedFeatures {
 				
 				
 				
+				
+				register(context, MYTHRIL_ORE_PLACED_KEY,
+						configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_MYTHRIL_ORE_KEY),
+						ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
+				register(context, NETHER_MYTHRIL_ORE_PLACED_KEY,
+						configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_MYTHRIL_ORE_KEY),
+						ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
+				register(context, END_MYTHRIL_ORE_PLACED_KEY,
+						configuredFeatures.getOrThrow(ModConfiguredFeatures.END_MYTHRIL_ORE_KEY),
+						ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
 				
 				
 				//     ============ ====   == == === == ==   == ==== ============

@@ -36,7 +36,9 @@ public class ModConfiguredFeatures {
 		public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_BREADINIUM_ORE_KEY = registerKey("nether_breadinium_ore");
 		public static final ResourceKey<ConfiguredFeature<?, ?>> END_BREADINIUM_ORE_KEY = registerKey("end_breadinium_ore");
 		
-		
+		public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_MYTHRIL_ORE_KEY = registerKey("mythril_ore");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_MYTHRIL_ORE_KEY   = registerKey("nether_mythril_ore");
+		public static final ResourceKey<ConfiguredFeature<?, ?>> END_MYTHRIL_ORE_KEY      = registerKey("end_mythril_ore");
 		
 		
 		
@@ -90,6 +92,16 @@ public class ModConfiguredFeatures {
 						new TwoLayersFeatureSize(1, 3, 3))
 																					.ignoreVines()
 																					.build());
+				
+				List<OreConfiguration.TargetBlockState> overworldMythrilOres = List.of(
+						OreConfiguration.target(stoneReplaceables,    ModBlocks.MYTHRIL_ORE.get().defaultBlockState()),
+						OreConfiguration.target(deepslateReplaceables, ModBlocks.MYTHRIL_DEEPSLATE_ORE.get().defaultBlockState()));
+				
+				register(context, OVERWORLD_MYTHRIL_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMythrilOres, 9));
+				register(context, NETHER_MYTHRIL_ORE_KEY,   Feature.ORE, new OreConfiguration(netherrackReplaceables,
+						ModBlocks.MYTHRIL_NETHER_ORE.get().defaultBlockState(), 9));
+				register(context, END_MYTHRIL_ORE_KEY,      Feature.ORE, new OreConfiguration(endReplaceables,
+						ModBlocks.MYTHRIL_END_ORE.get().defaultBlockState(), 9));
 		
 		}
 		

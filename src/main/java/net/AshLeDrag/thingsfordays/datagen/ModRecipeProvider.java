@@ -1,6 +1,7 @@
 package net.AshLeDrag.thingsfordays.datagen;
 
 import net.AshLeDrag.thingsfordays.ThingsForDays;
+import net.AshLeDrag.thingsfordays.block.ModBlocks;
 import net.AshLeDrag.thingsfordays.item.ModItems;
 import net.AshLeDrag.thingsfordays.recipe.WeaponForgeRecipeBuilder;
 import net.minecraft.core.HolderLookup;
@@ -48,51 +49,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						.unlockedBy("has_pure_mana", has(ModItems.Mana.Resource.PURE_MANA))
 						.unlockedBy("has_stainless_steel_ingot", has(ModItems.Steel.Stainless.Resource.INGOT)).save(recipeOutput);
 				
-				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.TELEPORT_SPEAR)
-						.pattern("SMS")
-						.pattern("SSS")
-						.pattern("LTL")
-						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
-						.define('M', ModItems.Resource.SUPERPEARL)
-						.define('L', Items.LEATHER)
-						.define('T', Items.STICK)
-						.unlockedBy("has_super_pearl", has(ModItems.Resource.SUPERPEARL))
-						.unlockedBy("has_stainless_steel_ingot", has(ModItems.Steel.Stainless.Resource.INGOT)).save(recipeOutput);
 				
-				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.HARDENED_SWORD)
-						.pattern("SMS")
-						.pattern("SSS")
-						.pattern("LTL")
-						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
-						.define('M', ModItems.Mana.Resource.PURE_MANA)
-						.define('L', Items.LEATHER)
-						.define('T', Items.STICK)
-						.unlockedBy("has_pure_mana", has(ModItems.Mana.Resource.PURE_MANA))
-						.unlockedBy("has_hardened_steel_ingot", has(ModItems.Steel.Resource.HARDENED_INGOT)).save(recipeOutput);
-				
-				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.HARDENED_TELEPORT_SWORD.get())
-						.pattern("SMS")
-						.pattern("SSS")
-						.pattern("LTL")
-						.define('S', ModItems.Steel.Stainless.Resource.INGOT)
-						.define('M', ModItems.Mana.Resource.PURE_MANA)
-						.define('L', Items.LEATHER)
-						.define('T', Items.STICK)
-						.unlockedBy("has_super_pearl", has(ModItems.Resource.SUPERPEARL))
-						.unlockedBy("has_hardened_steel_ingot", has(ModItems.Steel.Resource.HARDENED_INGOT)).save(recipeOutput);
-				
-				ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.Weapons.GATHER_SWORD)
-						.pattern(" C ")
-						.pattern("CSC")
-						.pattern(" C ")
-						.define('S', ModItems.Weapons.COLOSSAL_SWORD)
-						.define('C', Items.CHEST)
-						.unlockedBy("has_stainless_stee_ingot", has(ModItems.Weapons.COLOSSAL_SWORD)).save(recipeOutput);
+				List<ItemLike> BREADINIUM_SMELTABLES = List.of(ModItems.Breadinium.Resource.RAW,
+						ModBlocks.BREADINIUM_ORE, ModBlocks.BREADINIUM_DEEPSLATE_ORE,
+						ModBlocks.BREADINIUM_NETHER_ORE, ModBlocks.BREADINIUM_END_ORE);
 				
 				
 				
+				oreRecipies(recipeOutput, BREADINIUM_SMELTABLES, RecipeCategory.MISC, ModItems.Breadinium.Resource.INGOT, ModBlocks.BREADINIUM_BLOCK, 0.25f,  600, "breadinium");
 				
 				
+				List<ItemLike> MYTHRIL_SMELTABLES = List.of(ModItems.Mythril.Resource.RAW,
+						ModBlocks.MYTHRIL_ORE, ModBlocks.MYTHRIL_DEEPSLATE_ORE,
+						ModBlocks.MYTHRIL_NETHER_ORE, ModBlocks.MYTHRIL_END_ORE);
+				
+				oreRecipies(recipeOutput, MYTHRIL_SMELTABLES, RecipeCategory.MISC,
+						ModItems.Mythril.Resource.INGOT, ModBlocks.MYTHRIL_BLOCK, 0.25f, 600, "mythril");
 		}
 		
 		
@@ -149,10 +121,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						.result      (Items.ANCIENT_DEBRIS)
 						.unlockedBy  ("has_crying_obsidian", has(Items.CRYING_OBSIDIAN))
 						.save(recipeOutput, ThingsForDays.MOD_ID + ":weapon_forge_diagonal_example");
+				
+				
+				
+				
+				
+				
 		}
-		
-		
-		
 		
 		
 		

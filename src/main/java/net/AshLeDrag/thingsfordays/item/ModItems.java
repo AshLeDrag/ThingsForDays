@@ -58,7 +58,7 @@ public class ModItems {
 				}
 				
 				public static class Tools {
-						public static final DeferredItem<HammerItem> HAMMER = ITEMS.register("breadinium_hammer", () -> new HammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 5, 3, ModTags.Blocks.BASIC_HAMMER_MINEABLE) {
+						public static final DeferredItem<BreadiniumHammerItem> HAMMER = ITEMS.register("breadinium_hammer", () -> new BreadiniumHammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 5, 5, ModTags.Blocks.BASIC_HAMMER_MINEABLE) {
 								@Override public void appendHoverText(
 										ItemStack stack,
 										TooltipContext context,
@@ -69,7 +69,7 @@ public class ModItems {
 								}
 						});
 						
-						public static final DeferredItem<HammerItem> AXE_HAMMER = ITEMS.register("breadinium_wood_hammer", () -> new HammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 3, 3, ModTags.Blocks.AXE_HAMMER_MINEABLE) {
+						public static final DeferredItem<BreadiniumHammerItem> AXE_HAMMER = ITEMS.register("breadinium_wood_hammer", () -> new BreadiniumHammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 3, 3, ModTags.Blocks.AXE_HAMMER_MINEABLE) {
 								@Override public void appendHoverText(
 										ItemStack stack,
 										TooltipContext context,
@@ -80,7 +80,7 @@ public class ModItems {
 								}
 						});
 						
-						public static final DeferredItem<HammerItem> PICKAXE_HAMMER = ITEMS.register("breadinium_pickaxe_hammer", () -> new HammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 3, 3, ModTags.Blocks.PICKAXE_HAMMER_MINEABLE) {
+						public static final DeferredItem<BreadiniumHammerItem> PICKAXE_HAMMER = ITEMS.register("breadinium_pickaxe_hammer", () -> new BreadiniumHammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 3, 3, ModTags.Blocks.PICKAXE_HAMMER_MINEABLE) {
 								@Override public void appendHoverText(
 										ItemStack stack,
 										TooltipContext context,
@@ -91,7 +91,8 @@ public class ModItems {
 								}
 						});
 						
-						public static final DeferredItem<HammerItem> SHOVEL_HAMMER = ITEMS.register("breadinium_shovel_hammer", () -> new HammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 3, 3, ModTags.Blocks.SHOVEL_HAMMER_MINEABLE) {
+						public static final DeferredItem<BreadiniumHammerItem> SHOVEL_HAMMER = ITEMS.register("breadinium_shovel_hammer", () -> new BreadiniumHammerItem(ModToolTiers.BREADINIUM, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.BREADINIUM, 6.7f, -4.0f)), 5, 5
+								, ModTags.Blocks.SHOVEL_HAMMER_MINEABLE) {
 								@Override public void appendHoverText(
 										ItemStack stack,
 										TooltipContext context,
@@ -193,6 +194,30 @@ public class ModItems {
 				
 				public static class Weapons {}
 		}
+		
+		public static class Mythril {
+				public static class Resource {
+						public static final DeferredItem<Item> RAW    = ITEMS.register("raw_mythril",      () -> new Item(new Item.Properties()));
+						public static final DeferredItem<Item> INGOT  = ITEMS.register("mythril_ingot",    () -> new Item(new Item.Properties()));
+						public static final DeferredItem<Item> NUGGET = ITEMS.register("mythril_nugget",   () -> new Item(new Item.Properties()));
+				}
+				public static class Tools {
+						public static final DeferredItem<PickaxeItem> PICKAXE = ITEMS.register("mythril_pickaxe", () -> new PickaxeItem(ModToolTiers.MYTHRIL, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.MYTHRIL, 1.0f, -2.8f))));
+						public static final DeferredItem<AxeItem>     AXE     = ITEMS.register("mythril_axe",     () -> new AxeItem    (ModToolTiers.MYTHRIL, new Item.Properties().attributes(AxeItem    .createAttributes(ModToolTiers.MYTHRIL, 6.0f, -3.2f))));
+						public static final DeferredItem<ShovelItem>  SHOVEL  = ITEMS.register("mythril_shovel",  () -> new ShovelItem (ModToolTiers.MYTHRIL, new Item.Properties().attributes(ShovelItem .createAttributes(ModToolTiers.MYTHRIL, 1.5f, -3.0f))));
+						public static final DeferredItem<HoeItem>     HOE     = ITEMS.register("mythril_hoe",     () -> new HoeItem    (ModToolTiers.MYTHRIL, new Item.Properties().attributes(HoeItem    .createAttributes(ModToolTiers.MYTHRIL, 0f,   -2.4f))));
+				}
+				public static class Armor {
+						public static final DeferredItem<ArmorItem> HELMET     = ITEMS.register("mythril_helmet",     () -> new ArmorItem(ModArmorMaterials.MYTHRIL_ARMOR_MATERIAL, ArmorItem.Type.HELMET,     new Item.Properties().durability(ArmorItem.Type.HELMET    .getDurability(19))));
+						public static final DeferredItem<ArmorItem> CHESTPLATE = ITEMS.register("mythril_chestplate", () -> new ArmorItem(ModArmorMaterials.MYTHRIL_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(19))));
+						public static final DeferredItem<ArmorItem> LEGGINGS   = ITEMS.register("mythril_leggings",   () -> new ArmorItem(ModArmorMaterials.MYTHRIL_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,   new Item.Properties().durability(ArmorItem.Type.LEGGINGS  .getDurability(19))));
+						public static final DeferredItem<ArmorItem> BOOTS      = ITEMS.register("mythril_boots",      () -> new ArmorItem(ModArmorMaterials.MYTHRIL_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,      new Item.Properties().durability(ArmorItem.Type.BOOTS     .getDurability(19))));
+				}
+				public static class Weapons {
+						public static final DeferredItem<SwordItem> SWORD = ITEMS.register("mythril_sword", () -> new SwordItem(ModToolTiers.MYTHRIL, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.MYTHRIL, 5.0f, -2.4f))));
+				}
+		}
+		
 		
 		public static class Resource {
 				public static final DeferredItem<Item> SUPERPEARL = ITEMS.register("super_pearl", () -> new Item(new Item.Properties())); //TODO: make a reusable ender pearl

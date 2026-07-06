@@ -1,5 +1,6 @@
 package net.AshLeDrag.thingsfordays.component;
 
+import com.mojang.serialization.Codec;
 import net.AshLeDrag.thingsfordays.ThingsForDays;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
@@ -14,8 +15,10 @@ public class ModDataComponents {
 	public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
 		DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, ThingsForDays.MOD_ID);
 	
-	public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES = register("coordinates",
-																																																							 builder -> builder.persistent(BlockPos.CODEC));
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES = register("coordinates",builder -> builder.persistent(BlockPos.CODEC));
+	
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WIDTH_RANGE = register("width",builder -> builder.persistent(Codec.INT));
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> DEPTH_RANGE = register("depth",builder -> builder.persistent(Codec.INT));
 	
 	
 	
